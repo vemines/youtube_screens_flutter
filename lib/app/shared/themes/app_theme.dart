@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_screens/gen/colors.gen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../../gen/colors.gen.dart';
+
+final robotoRegular = GoogleFonts.robotoSerif().fontFamily;
 
 class AppTheme {
   static final TextTheme whiteTextTheme = Typography.material2021().white;
@@ -8,8 +11,15 @@ class AppTheme {
     primaryColor: ColorName.darkPrimary,
     brightness: Brightness.dark,
     textTheme: whiteTextTheme.copyWith(
-      bodyMedium: whiteTextTheme.bodyMedium!.copyWith(
+      bodyLarge: whiteTextTheme.bodyLarge!.copyWith(
+        fontFamily: GoogleFonts.roboto().fontFamily,
+        fontWeight: FontWeight.w600,
+      ),
+      bodySmall: whiteTextTheme.bodySmall!.copyWith(
         color: ColorName.darkSubtext,
+        fontSize: 14,
+        fontFamily: GoogleFonts.roboto().fontFamily,
+        fontWeight: FontWeight.w400,
       ),
     ),
     colorScheme: ColorScheme.dark().copyWith(

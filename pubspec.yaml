@@ -7,11 +7,15 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.1.0
+  fl_chart: ^0.66.2
   flutter:
     sdk: flutter
   flutter_lorem: ^2.0.0
+  flutter_svg: ^2.0.10+1
   gap: ^3.0.1
   get: 4.6.6
+  google_fonts: 6.1.0
+  readmore: ^2.2.0
   timeago: ^3.6.1
 
 dev_dependencies:
@@ -27,6 +31,7 @@ flutter:
   assets:
     - assets/png/
     - assets/jpg/
+    - assets/svg/
 
 flutter_gen:
   integrations:

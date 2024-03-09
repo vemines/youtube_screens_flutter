@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/modules/home/views/widgets/video_widget.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/extension/string_extension.dart';
-import 'package:youtube_screens/app/shared/extension/widget_extension.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
-import 'package:youtube_screens/gen/colors.gen.dart';
+import 'package:youtube_screens/app/data/models/playlist_model.dart';
+import 'package:youtube_screens/app/modules/home/views/widgets/notification_widget.dart';
+import 'package:youtube_screens/app/shared/extensions/num_extension.dart';
+import '../../../data/models/post_model.dart';
+import '../../../data/models/subscription_model.dart';
+import '../../../data/models/video_model.dart';
+import '../../../routes/app_pages.dart';
+import 'widgets/video_widget.dart';
+import '../../../shared/constants/dimens.dart';
+import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/common.dart';
+import '../../../../gen/colors.gen.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../controllers/home_controller.dart';
+import 'widgets/post_widget.dart';
 
 part 'widgets/bottom_nav.dart';
 part 'home_page.dart';
@@ -24,39 +31,54 @@ class HomeView extends GetView<HomeController> {
     return SafeArea(
       child: Obx(
         () => Scaffold(
-          appBar: AppBar(
-            leading: Padding(
-              padding: EdgeInsets.fromLTRB(
-                Dimensions.small,
-                Dimensions.small,
-                0,
-                Dimensions.small,
-              ),
-              child: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Image.asset(
-                  Assets.png.icon.path.prefixAssets(),
+          appBar: controller.bottomNavIndex.value != 3
+              ? AppBar(
+                  leadingWidth: 120,
+                  leading: Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      Dimensions.small,
+                      Dimensions.small,
+                      0,
+                      Dimensions.small,
+                    ),
+                    child: widgetByThemeMode(
+                      light: Assets.png.ytLogo.image(),
+                      dark: Assets.png.ytLogoDark.image(),
+                    ),
+                  ),
+                  actions: [
+                    IconButton(
+                      icon: Icon(Icons.videocam_outlined),
+                      onPressed: () {},
+                      iconSize: IconSize.appbar,
+                    ),
+                    gapS(),
+                    IconButton(
+                      icon: Icon(Icons.search),
+                      onPressed: () {},
+                      iconSize: IconSize.appbar,
+                    ),
+                  ],
+                )
+              : AppBar(
+                  actions: [
+                    IconButton(
+                      icon: Icon(Icons.notifications_outlined),
+                      onPressed: () {},
+                      iconSize: IconSize.appbar,
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.search),
+                      onPressed: () {},
+                      iconSize: IconSize.appbar,
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.settings_outlined),
+                      onPressed: () {},
+                      iconSize: IconSize.appbar,
+                    ),
+                  ].separateCenter(Dimensions.small),
                 ),
-              ),
-            ),
-            title: Text(
-              'Premium',
-              style: context.textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w800),
-            ),
-            actions: [
-              IconButton(
-                icon: Icon(Icons.videocam_outlined),
-                onPressed: () {},
-                iconSize: IconSize.appbar,
-              ),
-              gapN(),
-              IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {},
-                iconSize: IconSize.appbar,
-              ),
-            ],
-          ),
           body: <Widget>[
             HomePage(),
             SubscriptionsPage(),

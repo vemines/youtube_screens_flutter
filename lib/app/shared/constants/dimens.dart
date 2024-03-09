@@ -6,7 +6,8 @@ class Dimensions {
 
 class RadiusBorder {
   static const double normal = 10.0;
-  static const double kDialog = 20.0;
+  static const double dialog = 20.0;
+  static const double video = 15.0;
 }
 
 class IconSize {
@@ -15,4 +16,10 @@ class IconSize {
 
 class ImageSize {
   static const double appbar = 25.0;
+  static const double leadingNotification = 35.0;
+  static const double avatarAccountPage = 40.0;
+}
+
+class BadgeSize {
+  static const double notification = 10.0;
 }

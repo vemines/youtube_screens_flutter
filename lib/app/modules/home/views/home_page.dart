@@ -22,15 +22,9 @@ class _HomePageState extends State<HomePage> {
           ? centerIndicator()
           : NoScrollBarWidget(
               child: Column(
-                children: controller.homeVideos
-                    .toList()
-                    .map((video) => VideoWidget(
-                          iconChannel: video.iconChannel,
-                          title: video.title,
-                          subtitle: video.getSubTitle(),
-                          videoThumb: video.videoThumb,
-                        ))
-                    .toList(),
+                children: controller.homeVideos.toList().map((video) {
+                  return VideoWidget(video: video);
+                }).toList(),
               ),
             ),
     );

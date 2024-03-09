@@ -8,6 +8,8 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
 
 class $AssetsJpgGen {
   const $AssetsJpgGen();
@@ -25,11 +27,24 @@ class $AssetsPngGen {
   /// File path: assets/png/coffee.png
   AssetGenImage get coffee => const AssetGenImage('assets/png/coffee.png');
 
-  /// File path: assets/png/icon.png
-  AssetGenImage get icon => const AssetGenImage('assets/png/icon.png');
+  /// File path: assets/png/yt_logo.png
+  AssetGenImage get ytLogo => const AssetGenImage('assets/png/yt_logo.png');
+
+  /// File path: assets/png/yt_logo_dark.png
+  AssetGenImage get ytLogoDark => const AssetGenImage('assets/png/yt_logo_dark.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [coffee, icon];
+  List<AssetGenImage> get values => [coffee, ytLogo, ytLogoDark];
+}
+
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/google.svg
+  SvgGenImage get google => const SvgGenImage('assets/svg/google.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [google];
 }
 
 class Assets {
@@ -37,6 +52,7 @@ class Assets {
 
   static const $AssetsJpgGen jpg = $AssetsJpgGen();
   static const $AssetsPngGen png = $AssetsPngGen();
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
 }
 
 class AssetGenImage {
@@ -105,6 +121,59 @@ class AssetGenImage {
       _assetName,
       bundle: bundle,
       package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class SvgGenImage {
+  const SvgGenImage(this._assetName);
+
+  final String _assetName;
+
+  SvgPicture svg({
+    Key? key,
+    bool matchTextDirection = false,
+    AssetBundle? bundle,
+    String? package,
+    double? width,
+    double? height,
+    BoxFit fit = BoxFit.contain,
+    AlignmentGeometry alignment = Alignment.center,
+    bool allowDrawingOutsideViewBox = false,
+    WidgetBuilder? placeholderBuilder,
+    String? semanticsLabel,
+    bool excludeFromSemantics = false,
+    SvgTheme theme = const SvgTheme(),
+    ColorFilter? colorFilter,
+    Clip clipBehavior = Clip.hardEdge,
+    @deprecated Color? color,
+    @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
+    @deprecated bool cacheColorFilter = false,
+  }) {
+    return SvgPicture.asset(
+      _assetName,
+      key: key,
+      matchTextDirection: matchTextDirection,
+      bundle: bundle,
+      package: package,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
+      placeholderBuilder: placeholderBuilder,
+      semanticsLabel: semanticsLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      theme: theme,
+      colorFilter: colorFilter,
+      color: color,
+      colorBlendMode: colorBlendMode,
+      clipBehavior: clipBehavior,
+      cacheColorFilter: cacheColorFilter,
     );
   }
 

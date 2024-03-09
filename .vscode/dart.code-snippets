@@ -1,0 +1,70 @@
+{
+  "New Getx View": {
+    "prefix": "pjview",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "import 'package:get/get.dart';",
+      "",
+      "import '../../../shared/widgets/common.dart';",
+      "import '../controllers/${1:Name}_controller.dart';",
+      "",
+      "class ${1:Name}View extends GetView<${1:Name}Controller> {",
+      "  const ${1:Name}View({super.key});",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Scaffold(",
+      "      appBar: AppBar(",
+      "        title: Text('${1:Name}'),",
+      "        automaticallyImplyLeading: false,",
+      "        actions: [",
+      "          IconButton(",
+      "            onPressed: () => Get.back(),",
+      "            icon: Icon(Icons.close_outlined),",
+      "          ),",
+      "        ],",
+      "      ),",
+      "      body: NoScrollBarWidget(",
+      "        child: Container(child: Text('${1:Name}Page')),",
+      "      ),",
+      "    );",
+      "  }",
+      "}"
+    ]
+  },
+  "New Getx Controller": {
+    "prefix": "pjcontroller",
+    "body": [
+      "import 'package:get/get.dart';",
+      "",
+      "class ${1:Name}Controller extends GetxController {}"
+    ]
+  },
+  "New Getx Binding": {
+    "prefix": "pjbinding",
+    "body": [
+      "import 'package:get/get.dart';",
+      "",
+      "import '../controllers/${1:Name}_controller.dart';",
+      "",
+      "class ${1:Name}Binding extends Bindings {",
+      "  @override",
+      "  void dependencies() {",
+      "    Get.lazyPut<${1:Name}Controller>(",
+      "      () => ${1:Name}Controller(),",
+      "    );",
+      "  }",
+      "}"
+    ]
+  },
+  "Insert Getx GetPage": {
+    "prefix": "pjgetpage",
+    "body": [
+      "GetPage(",
+      "  name: Routes.${1:Name},",
+      "  page: () => const ${1:Name}View(),",
+      "  binding: ${1:Name}Binding(),",
+      "),"
+    ]
+  }
+}

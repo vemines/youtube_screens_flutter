@@ -1,45 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
+import 'package:youtube_screens/app/data/models/video_model.dart';
+import 'package:youtube_screens/app/shared/constants/dimens.dart';
+import '../../../../shared/widgets/common.dart';
 
 class VideoWidget extends StatelessWidget {
   const VideoWidget({
     super.key,
-    required this.iconChannel,
-    required this.title,
-    required this.subtitle,
-    required this.videoThumb,
+    required this.video,
   });
 
-  final String iconChannel;
-  final String videoThumb;
-  final String title;
-  final String subtitle;
+  final VideoModel video;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(videoThumb),
-        gapS(),
-        ListTile(
-          leading: Image.asset(iconChannel),
-          title: Text(
-            title,
-            style: context.textTheme.bodyLarge,
-            maxLines: 2,
-            overflow: TextOverflow.clip,
-          ),
-          contentPadding: EdgeInsets.zero,
-          subtitle: Text(subtitle, style: context.textTheme.bodyMedium),
-          trailing: IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () => Get.bottomSheet(
-              ListView(
-                children: [],
+        Stack(
+          children: [
+            Image.asset(video.thumb),
+            Positioned(
+              bottom: 10,
+              right: 10,
+              child: Container(
+                color: context.theme.colorScheme.background,
+                padding: EdgeInsets.all(Dimensions.small),
+                child: Text(
+                  video.getTimeStamp(),
+                ),
               ),
             ),
+          ],
+        ),
+        gapS(),
+        ListTile(
+          leading: Image.asset(video.iconChannel),
+          title: Text(
+            video.title + "\n",
+            style: context.textTheme.bodyMedium,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          contentPadding: EdgeInsets.zero,
+          subtitle: Text(
+            video.getSubTitle() + "\n",
+            style: context.textTheme.bodySmall,
+            maxLines: 2,
+          ),
+          trailing: IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () => Get.bottomSheet(SizedBox()),
           ),
         )
       ],

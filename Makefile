@@ -10,5 +10,5 @@ gen:
 	fluttergen -c pubspec.yaml
 
 # flavors
-buildRelease:
+buildWeb:
 	flutter build web --release --no-tree-shake-icons
