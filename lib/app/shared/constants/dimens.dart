@@ -23,3 +23,8 @@ class ImageSize {
 class BadgeSize {
   static const double notification = 10.0;
 }
+
+class ChartSize {
+  static const double chartBarWidth = 20.0;
+  static const double chartBarRadius = 5.0;
+}
