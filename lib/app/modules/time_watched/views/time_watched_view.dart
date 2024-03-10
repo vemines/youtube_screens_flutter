@@ -1,6 +1,3 @@
-import 'dart:js';
-import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +17,7 @@ class TimeWatchedView extends GetView<TimeWatchedController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TimeWatched'),
+        title: Text('Time watched'),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
@@ -78,7 +75,7 @@ class _WatchDetail extends GetView<TimeWatchedController> {
               text: 'watch history',
               recognizer: TapGestureRecognizer()..onTap = () {},
               style: bodySmall!.copyWith(
-                color: ColorName.darkPrimary,
+                color: context.theme.primaryColor,
               ),
             ),
             TextSpan(text: ' across YouTube products (expect YouTube Music and YouTube TV).\n', style: bodySmall),
@@ -86,7 +83,7 @@ class _WatchDetail extends GetView<TimeWatchedController> {
               text: 'Learn more',
               recognizer: TapGestureRecognizer()..onTap = () {},
               style: bodySmall.copyWith(
-                color: ColorName.darkPrimary,
+                color: context.theme.primaryColor,
               ),
             ),
           ])),

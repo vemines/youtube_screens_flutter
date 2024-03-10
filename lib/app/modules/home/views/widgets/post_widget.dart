@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:youtube_screens/app/data/models/post_model.dart';
-import 'package:youtube_screens/gen/colors.gen.dart';
 import '../../../../shared/constants/dimens.dart';
 import '../../../../shared/widgets/common.dart';
 
@@ -38,7 +37,7 @@ class PostWidget extends StatelessWidget {
           post.content,
           trimLines: 2,
           trimMode: TrimMode.Line,
-          colorClickableText: ColorName.darkPrimary,
+          colorClickableText: context.theme.primaryColor,
           trimCollapsedText: 'Show more',
           trimExpandedText: 'Show less',
           style: context.textTheme.bodyMedium,

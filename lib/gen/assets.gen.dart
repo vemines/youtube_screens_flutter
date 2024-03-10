@@ -27,14 +27,23 @@ class $AssetsPngGen {
   /// File path: assets/png/coffee.png
   AssetGenImage get coffee => const AssetGenImage('assets/png/coffee.png');
 
+  /// File path: assets/png/movie.png
+  AssetGenImage get movie => const AssetGenImage('assets/png/movie.png');
+
+  /// File path: assets/png/premium_logo.png
+  AssetGenImage get premiumLogo =>
+      const AssetGenImage('assets/png/premium_logo.png');
+
   /// File path: assets/png/yt_logo.png
   AssetGenImage get ytLogo => const AssetGenImage('assets/png/yt_logo.png');
 
   /// File path: assets/png/yt_logo_dark.png
-  AssetGenImage get ytLogoDark => const AssetGenImage('assets/png/yt_logo_dark.png');
+  AssetGenImage get ytLogoDark =>
+      const AssetGenImage('assets/png/yt_logo_dark.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [coffee, ytLogo, ytLogoDark];
+  List<AssetGenImage> get values =>
+      [coffee, movie, premiumLogo, ytLogo, ytLogoDark];
 }
 
 class $AssetsSvgGen {
@@ -47,12 +56,61 @@ class $AssetsSvgGen {
   List<SvgGenImage> get values => [google];
 }
 
+class $AssetsWebpGen {
+  const $AssetsWebpGen();
+
+  /// File path: assets/webp/large_feature_1.webp
+  AssetGenImage get largeFeature1 =>
+      const AssetGenImage('assets/webp/large_feature_1.webp');
+
+  /// File path: assets/webp/large_feature_2.webp
+  AssetGenImage get largeFeature2 =>
+      const AssetGenImage('assets/webp/large_feature_2.webp');
+
+  /// File path: assets/webp/large_feature_3.webp
+  AssetGenImage get largeFeature3 =>
+      const AssetGenImage('assets/webp/large_feature_3.webp');
+
+  /// File path: assets/webp/large_feature_4.webp
+  AssetGenImage get largeFeature4 =>
+      const AssetGenImage('assets/webp/large_feature_4.webp');
+
+  /// File path: assets/webp/small_feature_1.webp
+  AssetGenImage get smallFeature1 =>
+      const AssetGenImage('assets/webp/small_feature_1.webp');
+
+  /// File path: assets/webp/small_feature_2.webp
+  AssetGenImage get smallFeature2 =>
+      const AssetGenImage('assets/webp/small_feature_2.webp');
+
+  /// File path: assets/webp/small_feature_3.webp
+  AssetGenImage get smallFeature3 =>
+      const AssetGenImage('assets/webp/small_feature_3.webp');
+
+  /// File path: assets/webp/small_feature_4.webp
+  AssetGenImage get smallFeature4 =>
+      const AssetGenImage('assets/webp/small_feature_4.webp');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        largeFeature1,
+        largeFeature2,
+        largeFeature3,
+        largeFeature4,
+        smallFeature1,
+        smallFeature2,
+        smallFeature3,
+        smallFeature4
+      ];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsJpgGen jpg = $AssetsJpgGen();
   static const $AssetsPngGen png = $AssetsPngGen();
   static const $AssetsSvgGen svg = $AssetsSvgGen();
+  static const $AssetsWebpGen webp = $AssetsWebpGen();
 }
 
 class AssetGenImage {

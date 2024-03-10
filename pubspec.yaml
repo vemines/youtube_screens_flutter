@@ -32,6 +32,7 @@ flutter:
     - assets/png/
     - assets/jpg/
     - assets/svg/
+    - assets/webp/
 
 flutter_gen:
   integrations:

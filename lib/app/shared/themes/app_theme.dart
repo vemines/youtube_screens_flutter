@@ -8,7 +8,7 @@ final robotoRegular = GoogleFonts.robotoSerif().fontFamily;
 class AppTheme {
   static final TextTheme whiteTextTheme = Typography.material2021().white;
 
-  static ThemeData dark = ThemeData.dark(useMaterial3: false).copyWith(
+  static ThemeData dark = ThemeData.dark(useMaterial3: true).copyWith(
     primaryColor: ColorName.darkPrimary,
     brightness: Brightness.dark,
     textTheme: whiteTextTheme.copyWith(
@@ -45,6 +45,11 @@ class AppTheme {
         }
         return Colors.grey; // Track color when the switch is in the false state
       }),
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        backgroundColor: ColorName.darkPrimary,
+      ),
     ),
   );
 }

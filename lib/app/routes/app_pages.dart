@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
-import '../modules/static/developing.dart';
+import 'package:youtube_screens/app/modules/get_premium/views/get_premium_view.dart';
+import '../modules/get_premium/bindings/get_premium_binding.dart';
+import '../modules/movies/bindings/movie_binding.dart';
+import '../modules/movies/views/movie_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -11,7 +14,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.timeWatched;
+  static const INITIAL = Routes.getPremium;
 
   static final routes = [
     //
@@ -25,6 +28,17 @@ class AppPages {
       name: Routes.timeWatched,
       page: () => const TimeWatchedView(),
       binding: TimeWatchedBinding(),
+    ),
+    //
+    GetPage(
+      name: Routes.movies,
+      page: () => const MovieView(),
+      binding: MovieBinding(),
+    ),
+    GetPage(
+      name: Routes.getPremium,
+      page: () => const GetPremiumView(),
+      binding: GetPremiumBinding(),
     ),
   ];
 }
