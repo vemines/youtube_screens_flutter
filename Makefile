@@ -12,3 +12,11 @@ gen:
 # flavors
 buildWeb:
 	flutter build web --release --no-tree-shake-icons
+	
+# flavors
+createfile:
+	$files = "a", "b", "c"
+
+
+
+

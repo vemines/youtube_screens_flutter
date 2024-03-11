@@ -1,40 +1,35 @@
-import '../models/subscription_bar_model.dart';
+import '../models/subscription_model.dart';
 
 import '../../../gen/assets.gen.dart';
 
 class SubcriptionsRepository {
-  static List<SubcriptionsModel> mock = [
-    SubcriptionsModel(
+  static List<SubscriptionModel> mock = [
+    SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
       nameChannel: 'VeMines',
+      isSilent: true,
     ),
-    SubcriptionsModel(
+    SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
       nameChannel: 'VeMines lorem ipsum',
     ),
-    SubcriptionsModel(
+    SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
-      nameChannel: 'VeMines',
+      nameChannel: 'VeMines 1',
+      isSilent: true,
     ),
-    SubcriptionsModel(
+    SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
-      nameChannel: 'VeMines',
+      nameChannel: 'VeMines 2',
+      isSilent: true,
     ),
-    SubcriptionsModel(
+    SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
-      nameChannel: 'VeMines',
+      nameChannel: 'VeMines 3',
     ),
-    SubcriptionsModel(
+    SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
-      nameChannel: 'VeMines',
-    ),
-    SubcriptionsModel(
-      iconChannel: Assets.png.coffee.path,
-      nameChannel: 'VeMines',
-    ),
-    SubcriptionsModel(
-      iconChannel: Assets.png.coffee.path,
-      nameChannel: 'VeMines',
+      nameChannel: 'VeMines 4',
     ),
   ];
 }

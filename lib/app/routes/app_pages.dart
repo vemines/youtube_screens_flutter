@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
+import 'package:youtube_screens/app/modules/allSubscriptions/views/all_subscriptions_view.dart';
 import 'package:youtube_screens/app/modules/get_premium/views/get_premium_view.dart';
+import 'package:youtube_screens/app/modules/playlist/bindings/playlist_binding.dart';
+import 'package:youtube_screens/app/modules/playlist/views/playlist_view.dart';
+import '../modules/allSubscriptions/bindings/all_subscriptions_binding.dart';
 import '../modules/get_premium/bindings/get_premium_binding.dart';
 import '../modules/movies/bindings/movie_binding.dart';
 import '../modules/movies/views/movie_view.dart';
@@ -14,7 +18,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.getPremium;
+  static const INITIAL = Routes.allSubscriptions;
 
   static final routes = [
     //
@@ -39,6 +43,16 @@ class AppPages {
       name: Routes.getPremium,
       page: () => const GetPremiumView(),
       binding: GetPremiumBinding(),
+    ),
+    GetPage(
+      name: Routes.playlist,
+      page: () => const PlaylistView(),
+      binding: PlaylistBinding(),
+    ),
+    GetPage(
+      name: Routes.allSubscriptions,
+      page: () => const AllSubscriptionsView(),
+      binding: AllSubscriptionsBinding(),
     ),
   ];
 }

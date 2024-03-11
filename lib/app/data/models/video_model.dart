@@ -3,9 +3,9 @@ import 'package:youtube_screens/app/shared/extensions/num_extension.dart';
 import '../../shared/extensions/datetime_extension.dart';
 import '../../shared/utils/formatters/viewed.dart';
 
-import 'subscription_model.dart';
+import 'subscriptions_model.dart';
 
-class VideoModel extends Subscription {
+class VideoModel extends Subscriptions {
   VideoModel({
     required this.iconChannel,
     required this.title,
@@ -23,6 +23,7 @@ class VideoModel extends Subscription {
   final int time;
   final DateTime uploadAt;
 
-  String getSubTitle() => "$nameChannel - ${NumberFormatter.format(view)} views  ${uploadAt.getTimeAgo()}";
+  String getSubTitle({bool breakLine = false}) =>
+      "$nameChannel ${breakLine ? '\n' : '- '}${NumberFormatter.format(view)} views  ${uploadAt.getTimeAgo()}";
   String getTimeStamp() => time.formatTime();
 }

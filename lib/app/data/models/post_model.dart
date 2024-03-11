@@ -1,9 +1,9 @@
-import 'subscription_model.dart';
 import '../../shared/extensions/datetime_extension.dart';
 
 import 'comment_model.dart';
+import 'subscriptions_model.dart';
 
-class PostModel extends Subscription {
+class PostModel extends Subscriptions {
   PostModel({
     required this.iconChannel,
     required this.content,

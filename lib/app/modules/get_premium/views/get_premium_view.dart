@@ -35,11 +35,11 @@ class _GetPremiumViewState extends State<GetPremiumView> {
         title: Text("Get YouTube Premium"),
         actions: [
           IconButton(
-            onPressed: () => Get.back(),
+            onPressed: () {},
             icon: Icon(Icons.search),
           ),
           IconButton(
-            onPressed: () => Get.back(),
+            onPressed: () {},
             icon: Icon(Icons.more_vert),
           ),
         ].separateCenter(),

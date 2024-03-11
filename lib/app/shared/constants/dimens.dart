@@ -18,6 +18,7 @@ class IconSize {
 
 class ImageSize {
   static const double appbar = 25.0;
+  static const double subscriptionBar = 25.0;
   static const double leadingNotification = 35.0;
   static const double avatarAccountPage = 40.0;
 }

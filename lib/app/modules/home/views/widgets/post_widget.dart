@@ -20,7 +20,7 @@ class PostWidget extends StatelessWidget {
         ListTile(
           leading: Image.asset(post.iconChannel),
           title: Text(
-            post.nameChannel + "\n",
+            post.nameChannel,
             style: context.textTheme.bodyLarge,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,

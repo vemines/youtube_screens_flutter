@@ -43,7 +43,7 @@ class AppTheme {
             0.5.opacityToAlpha(),
           ); // Track color when the switch is in the true state
         }
-        return Colors.grey; // Track color when the switch is in the false state
+        return Colors.grey[700]!; // Track color when the switch is in the false state
       }),
     ),
     filledButtonTheme: FilledButtonThemeData(

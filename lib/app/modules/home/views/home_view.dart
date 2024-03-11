@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:youtube_screens/app/data/models/playlist_model.dart';
+import 'package:youtube_screens/app/data/models/subscription_model.dart';
+import 'package:youtube_screens/app/data/models/subscriptions_model.dart';
 import 'package:youtube_screens/app/modules/home/views/widgets/notification_widget.dart';
 import 'package:youtube_screens/app/shared/extensions/num_extension.dart';
 import '../../../data/models/post_model.dart';
-import '../../../data/models/subscription_model.dart';
 import '../../../data/models/video_model.dart';
 import '../../../routes/app_pages.dart';
 import 'widgets/video_widget.dart';

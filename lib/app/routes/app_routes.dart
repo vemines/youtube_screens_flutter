@@ -2,11 +2,13 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   static const home = '/home';
-  static const allSubscriptions = '/all-subscriptions';
-  static const connectedApps = '/connected-apps';
   static const timeWatched = '/time-watched';
   static const getPremium = '/get-premium';
   static const movies = '/movies';
+  static const playlist = '/playlist';
+  static const allSubscriptions = '/all-subscriptions';
+
+  static const connectedApps = '/connected-apps';
   static const downloads = '/downloads';
   static const myVideos = '/my-videos';
   static const myChannel = '/my-channel';

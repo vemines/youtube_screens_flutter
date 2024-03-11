@@ -10,6 +10,7 @@ class PlaylistModel {
     required this.uploadAt,
     required this.videos,
     this.watchLater = false,
+    this.private = true,
   });
   final String iconChannel;
   final String nameChannel;
@@ -19,6 +20,8 @@ class PlaylistModel {
   final List<VideoModel> videos;
   final DateTime uploadAt;
   final bool watchLater;
+  final bool private;
 
   String getPlaylistLength() => videos.length.toString();
+  String getStatus() => private ? "🔒 Private" : "🌎 Public";
 }
