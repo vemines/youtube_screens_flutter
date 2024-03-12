@@ -7,8 +7,8 @@ abstract class Routes {
   static const movies = '/movies';
   static const playlist = '/playlist';
   static const allSubscriptions = '/all-subscriptions';
-
   static const connectedApps = '/connected-apps';
+
   static const downloads = '/downloads';
   static const myVideos = '/my-videos';
   static const myChannel = '/my-channel';

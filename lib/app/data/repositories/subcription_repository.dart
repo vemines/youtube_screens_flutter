@@ -2,7 +2,7 @@ import '../models/subscription_model.dart';
 
 import '../../../gen/assets.gen.dart';
 
-class SubcriptionsRepository {
+class SubcriptionRepository {
   static List<SubscriptionModel> mock = [
     SubscriptionModel(
       iconChannel: Assets.png.coffee.path,

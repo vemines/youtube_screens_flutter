@@ -3,13 +3,13 @@ import 'package:youtube_screens/app/data/models/notification_model.dart';
 import 'package:youtube_screens/app/data/models/playlist_model.dart';
 import 'package:youtube_screens/app/data/repositories/notification_repository.dart';
 import 'package:youtube_screens/app/data/repositories/playlist_repository.dart';
-import 'package:youtube_screens/app/data/repositories/subcriptions_repository.dart';
+import 'package:youtube_screens/app/data/repositories/subcription_repository.dart';
 import '../../../data/models/subscription_model.dart';
 import '../../../data/models/video_model.dart';
 import '../../../data/repositories/post_repository.dart';
 import '../../../data/repositories/video_repository.dart';
 
-import '../../../data/models/subscriptions_model.dart';
+import '../../../data/models/subscriptions_abs.dart';
 
 class HomeController extends GetxController {
   RxInt bottomNavIndex = 1.obs;
@@ -25,7 +25,7 @@ class HomeController extends GetxController {
   Future<void> loadPosts() async {
     Future.delayed(const Duration(seconds: 2)).then((_) {
       posts.value = [...PostRepository.mock, ...VideoRepository.mock];
-      subscriptions.value = [...SubcriptionsRepository.mock];
+      subscriptions.value = [...SubcriptionRepository.mock];
     });
   }
 

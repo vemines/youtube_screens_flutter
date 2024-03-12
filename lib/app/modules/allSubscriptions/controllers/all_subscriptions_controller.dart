@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '../../../data/models/subscription_model.dart';
-import '../../../data/repositories/subcriptions_repository.dart';
+import '../../../data/repositories/subcription_repository.dart';
 
 class AllSubscriptionsController extends GetxController {
   final RxBool isLoading = true.obs;
@@ -9,7 +9,7 @@ class AllSubscriptionsController extends GetxController {
   RxList<SubscriptionModel> subscriptions = <SubscriptionModel>[].obs;
   Future<void> loadPosts() async {
     Future.delayed(const Duration(seconds: 1)).then((_) {
-      subscriptions.value = [...SubcriptionsRepository.mock];
+      subscriptions.value = [...SubcriptionRepository.mock];
       isLoading.value = false;
     });
   }

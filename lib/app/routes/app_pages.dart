@@ -4,6 +4,8 @@ import 'package:youtube_screens/app/modules/get_premium/views/get_premium_view.d
 import 'package:youtube_screens/app/modules/playlist/bindings/playlist_binding.dart';
 import 'package:youtube_screens/app/modules/playlist/views/playlist_view.dart';
 import '../modules/allSubscriptions/bindings/all_subscriptions_binding.dart';
+import '../modules/connectedApps/bindings/connected_apps_binding.dart';
+import '../modules/connectedApps/views/connected_apps_view.dart';
 import '../modules/get_premium/bindings/get_premium_binding.dart';
 import '../modules/movies/bindings/movie_binding.dart';
 import '../modules/movies/views/movie_view.dart';
@@ -18,7 +20,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.allSubscriptions;
+  static const INITIAL = Routes.connectedApps;
 
   static final routes = [
     //
@@ -53,6 +55,11 @@ class AppPages {
       name: Routes.allSubscriptions,
       page: () => const AllSubscriptionsView(),
       binding: AllSubscriptionsBinding(),
+    ),
+    GetPage(
+      name: Routes.connectedApps,
+      page: () => const ConnectedAppsView(),
+      binding: ConnectedAppsBinding(),
     ),
   ];
 }
