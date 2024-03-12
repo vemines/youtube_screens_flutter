@@ -6,4 +6,5 @@
     <color name="dark_primary_container">#171717</color>
     <color name="dark_disable">#888888</color>
     <color name="dark_error">#ff0000</color>
+    <color name="dark_input_bg">#1a1a1a</color>
 </resources>

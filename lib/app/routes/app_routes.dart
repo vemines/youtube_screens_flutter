@@ -8,12 +8,13 @@ abstract class Routes {
   static const playlist = '/playlist';
   static const allSubscriptions = '/all-subscriptions';
   static const connectedApps = '/connected-apps';
+  static const search = '/search';
+  static const searchResult = '/search-result';
 
   static const downloads = '/downloads';
   static const myVideos = '/my-videos';
   static const myChannel = '/my-channel';
   static const channelSettings = '/my-channel/settings';
-  static const search = '/search';
   static const setings = '/setings';
   static const gereralSettings = '/setings/gereral';
   static const captionsSettings = '/setings/captions';

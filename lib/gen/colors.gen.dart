@@ -16,11 +16,14 @@ class ColorName {
   /// Color: #000000
   static const Color black = Color(0xFF000000);
 
-  /// Color: #272727
+  /// Color: #888888
   static const Color darkDisable = Color(0xFF888888);
 
   /// Color: #ff0000
   static const Color darkError = Color(0xFFFF0000);
+
+  /// Color: #1a1a1a
+  static const Color darkInputBg = Color(0xFF1A1A1A);
 
   /// Color: #3ca3fa
   static const Color darkPrimary = Color(0xFF3CA3FA);

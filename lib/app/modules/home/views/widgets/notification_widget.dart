@@ -49,13 +49,13 @@ class NotificationWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(RadiusBorder.video),
             child: Image.asset(
               notification.imageUrl,
-              width: 100,
+              width: 140,
             ),
           ),
           gapS(),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
+          InkWell(
+            onTap: () {},
+            child: Icon(
               Icons.more_vert_outlined,
             ),
           )

@@ -24,6 +24,8 @@ class AppTheme {
         fontWeight: FontWeight.w400,
       ),
     ),
+    appBarTheme: AppBarTheme().copyWith(backgroundColor: ColorName.black),
+    scaffoldBackgroundColor: ColorName.black,
     colorScheme: ColorScheme.dark().copyWith(
       onPrimary: ColorName.white,
       background: ColorName.black,
@@ -51,6 +53,10 @@ class AppTheme {
       style: FilledButton.styleFrom(
         backgroundColor: ColorName.darkPrimary,
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme().copyWith(
+      filled: true,
+      fillColor: ColorName.darkInputBg,
     ),
   );
 }

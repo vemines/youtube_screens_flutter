@@ -13,6 +13,7 @@ class RadiusBorder {
 
 class IconSize {
   static const double appbar = 30.0;
+  static const double appbarTextField = 15.0;
   static const double pickPlanGetPremium = 30.0;
 }
 
@@ -24,7 +25,7 @@ class ImageSize {
 }
 
 class BadgeSize {
-  static const double notification = 10.0;
+  static const double notification = 8.0;
 }
 
 class ChartSize {
