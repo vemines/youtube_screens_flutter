@@ -2,9 +2,11 @@ class SubscriptionModel {
   SubscriptionModel({
     required this.iconChannel,
     required this.nameChannel,
-    this.isSilent = false,
+    this.status = SubStatus.All,
   });
   final String iconChannel;
   final String nameChannel;
-  final bool isSilent;
+  final SubStatus status;
 }
+
+enum SubStatus { All, Personalized, None }

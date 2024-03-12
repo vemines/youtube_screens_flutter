@@ -133,7 +133,7 @@ class _PlaylistDetail extends StatelessWidget {
                   subtitle: Text(
                     "${playlist.getPlaylistLength()} videos  ${playlist.getStatus()}",
                     style: textTheme.bodyLarge!.copyWith(
-                      color: ColorName.darkSubtext,
+                      color: context.theme.disabledColor,
                     ),
                   ),
                   contentPadding: EdgeInsets.zero,

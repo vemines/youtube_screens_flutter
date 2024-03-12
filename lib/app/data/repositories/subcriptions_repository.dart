@@ -7,21 +7,21 @@ class SubcriptionsRepository {
     SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
       nameChannel: 'VeMines',
-      isSilent: true,
+      status: SubStatus.All,
     ),
     SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
       nameChannel: 'VeMines lorem ipsum',
+      status: SubStatus.None,
     ),
     SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
       nameChannel: 'VeMines 1',
-      isSilent: true,
+      status: SubStatus.Personalized,
     ),
     SubscriptionModel(
       iconChannel: Assets.png.coffee.path,
       nameChannel: 'VeMines 2',
-      isSilent: true,
     ),
     SubscriptionModel(
       iconChannel: Assets.png.coffee.path,

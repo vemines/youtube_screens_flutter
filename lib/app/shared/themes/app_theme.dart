@@ -10,6 +10,7 @@ class AppTheme {
 
   static ThemeData dark = ThemeData.dark(useMaterial3: true).copyWith(
     primaryColor: ColorName.darkPrimary,
+    disabledColor: ColorName.darkDisable,
     brightness: Brightness.dark,
     textTheme: whiteTextTheme.copyWith(
       bodyLarge: whiteTextTheme.bodyLarge!.copyWith(
@@ -17,7 +18,7 @@ class AppTheme {
         fontWeight: FontWeight.w600,
       ),
       bodySmall: whiteTextTheme.bodySmall!.copyWith(
-        color: ColorName.darkSubtext,
+        color: ColorName.darkDisable,
         fontSize: 14,
         fontFamily: GoogleFonts.roboto().fontFamily,
         fontWeight: FontWeight.w400,

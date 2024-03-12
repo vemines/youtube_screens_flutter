@@ -17,7 +17,7 @@ class ColorName {
   static const Color black = Color(0xFF000000);
 
   /// Color: #272727
-  static const Color darkDisable = Color(0xFF272727);
+  static const Color darkDisable = Color(0xFF888888);
 
   /// Color: #ff0000
   static const Color darkError = Color(0xFFFF0000);
@@ -27,9 +27,6 @@ class ColorName {
 
   /// Color: #171717
   static const Color darkPrimaryContainer = Color(0xFF171717);
-
-  /// Color: #888888
-  static const Color darkSubtext = Color(0xFF888888);
 
   /// Color: #ffffff
   static const Color white = Color(0xFFFFFFFF);
