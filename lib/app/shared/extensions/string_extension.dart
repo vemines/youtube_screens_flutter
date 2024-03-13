@@ -7,3 +7,10 @@
 //     return kReleaseMode && kIsWeb ? "assets/$this" : this;
 //   }
 // }
+extension Slug on String {
+  // assets when build web folder is assets/assets so sometime could 404
+  // use this extension or move assets folder
+  String slug() {
+    return this.toLowerCase().replaceAll(' ', '-');
+  }
+}

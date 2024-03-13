@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:youtube_screens/app/shared/constants/dimens.dart';
 import 'package:youtube_screens/app/shared/extensions/num_extension.dart';
 import '../../../gen/colors.gen.dart';
 
@@ -57,6 +58,12 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme().copyWith(
       filled: true,
       fillColor: ColorName.darkInputBg,
+    ),
+    chipTheme: ChipThemeData().copyWith(
+      backgroundColor: Colors.grey.shade600.withOpacity(0.25),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(RadiusBorder.chip),
+      ),
     ),
   );
 }

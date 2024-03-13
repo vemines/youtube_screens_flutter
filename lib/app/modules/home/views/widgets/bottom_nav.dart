@@ -10,9 +10,7 @@ class BottomNav extends GetView<HomeController> {
         type: BottomNavigationBarType.fixed, // Disable animation
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-            ),
+            icon: Icon(Icons.home_outlined),
             activeIcon: Icon(Icons.home),
             label: 'Home',
           ),

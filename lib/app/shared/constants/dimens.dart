@@ -5,6 +5,7 @@ class Dimensions {
 }
 
 class RadiusBorder {
+  static const double chip = 20.0;
   static const double normal = 10.0;
   static const double dialog = 20.0;
   static const double video = 15.0;

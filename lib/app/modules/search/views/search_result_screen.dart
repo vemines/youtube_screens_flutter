@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:youtube_screens/app/modules/home/views/widgets/video_widget.dart';
 import 'package:youtube_screens/app/routes/app_pages.dart';
 import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
-import 'package:youtube_screens/gen/colors.gen.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/search_controller.dart';
 
@@ -18,11 +16,15 @@ class SearchResultView extends StatefulWidget {
 class _SearchResultViewState extends State<SearchResultView> {
   AppSearchController controller = Get.find<AppSearchController>();
   late TextEditingController textController;
+  String? parameter = Get.parameters["query"];
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController(text: controller.searchValue);
+    if (parameter != null) {
+      textController = TextEditingController(text: parameter);
+      controller.searchVideo(parameter!);
+    }
   }
 
   @override
@@ -53,11 +55,6 @@ class _SearchResultViewState extends State<SearchResultView> {
               onPressed: () => Get.toNamed(Routes.search),
             ),
           ),
-          onChanged: (searchString) {
-            // for make sure actions disappear
-            setState(() {});
-            controller.search(searchString);
-          },
         ),
         actions: [
           IconButton(
@@ -71,9 +68,12 @@ class _SearchResultViewState extends State<SearchResultView> {
         ].separateCenter(),
       ),
       body: Obx(
-        () => ListView.builder(
-          itemBuilder: (context, index) => VideoWidget(video: controller.searchResult[index]),
-          itemCount: controller.searchResult.length,
+        () => ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: ListView.builder(
+            itemBuilder: (context, index) => VideoWidget(video: controller.searchResult[index]),
+            itemCount: controller.searchResult.length,
+          ),
         ),
       ),
     );

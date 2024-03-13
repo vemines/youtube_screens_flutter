@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/routes/app_pages.dart';
 import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
-import 'package:youtube_screens/gen/colors.gen.dart';
+import 'package:youtube_screens/app/shared/extensions/string_extension.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/search_controller.dart';
-import 'search_result_screen.dart';
 
 class AppSearchView extends StatefulWidget {
   const AppSearchView({super.key});
@@ -54,7 +51,7 @@ class _AppSearchViewState extends State<AppSearchView> {
                     highlightColor: Colors.transparent,
                     onTap: () {
                       textController.clear();
-                      setState(() {});
+                      if (mounted) setState(() {});
                     },
                     child: Icon(
                       Icons.close,
@@ -64,7 +61,7 @@ class _AppSearchViewState extends State<AppSearchView> {
           ),
           onChanged: (searchString) {
             // for make sure actions disappear
-            setState(() {});
+            if (mounted) setState(() {});
             controller.search(searchString);
           },
         ),
@@ -84,8 +81,8 @@ class _AppSearchViewState extends State<AppSearchView> {
             leading: Icon(Icons.search),
             trailing: Transform.flip(flipX: true, child: Icon(Icons.arrow_outward_outlined)),
             onTap: () {
-              controller.searchVideo(controller.searchOptions[index]);
-              Get.toNamed(Routes.searchResult);
+              print("/search/${controller.searchOptions[index].slug()}");
+              Get.toNamed("/search/${controller.searchOptions[index].slug()}");
             },
           ),
           itemCount: controller.searchOptions.length,

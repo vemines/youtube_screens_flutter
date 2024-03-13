@@ -26,13 +26,19 @@ Widget widgetByThemeMode({required Widget light, required Widget dark}) {
 }
 
 class NoScrollBarWidget extends StatelessWidget {
-  const NoScrollBarWidget({super.key, required this.child});
+  const NoScrollBarWidget({super.key, required this.child, this.padding});
   final Widget child;
+  final EdgeInsets? padding;
   @override
   Widget build(BuildContext context) {
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-      child: SingleChildScrollView(child: child),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: padding ?? EdgeInsets.zero,
+          child: child,
+        ),
+      ),
     );
   }
 }

@@ -9,10 +9,9 @@ abstract class Routes {
   static const allSubscriptions = '/all-subscriptions';
   static const connectedApps = '/connected-apps';
   static const search = '/search';
-  static const searchResult = '/search-result';
-
-  static const downloads = '/downloads';
-  static const myVideos = '/my-videos';
+  static const searchResult = '/search/:query';
+  static const download = '/download';
+  static const yourMovie = '/your-movie';
   static const myChannel = '/my-channel';
   static const channelSettings = '/my-channel/settings';
   static const setings = '/setings';

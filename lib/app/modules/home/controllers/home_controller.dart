@@ -12,7 +12,17 @@ import '../../../data/repositories/video_repository.dart';
 import '../../../data/models/subscriptions_abs.dart';
 
 class HomeController extends GetxController {
-  RxInt bottomNavIndex = 1.obs;
+  @override
+  void onInit() {
+    super.onInit();
+    try {
+      dynamic arg = Get.arguments as Map<String, dynamic>;
+      int index = int.tryParse(arg["bottomNavIndex"].toString()) ?? 0;
+      bottomNavIndex.value = index;
+    } catch (_) {}
+  }
+
+  RxInt bottomNavIndex = 0.obs;
   void setBottomNavIndex(int index) => bottomNavIndex.value = index;
 
   RxList<VideoModel> homeVideos = <VideoModel>[].obs;

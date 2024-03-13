@@ -27,12 +27,23 @@ class $AssetsPngGen {
   /// File path: assets/png/coffee.png
   AssetGenImage get coffee => const AssetGenImage('assets/png/coffee.png');
 
+  /// File path: assets/png/download.png
+  AssetGenImage get download => const AssetGenImage('assets/png/download.png');
+
   /// File path: assets/png/movie.png
   AssetGenImage get movie => const AssetGenImage('assets/png/movie.png');
 
   /// File path: assets/png/premium_logo.png
   AssetGenImage get premiumLogo =>
       const AssetGenImage('assets/png/premium_logo.png');
+
+  /// File path: assets/png/try_feature.png
+  AssetGenImage get tryFeature =>
+      const AssetGenImage('assets/png/try_feature.png');
+
+  /// File path: assets/png/your_video.png
+  AssetGenImage get yourVideo =>
+      const AssetGenImage('assets/png/your_video.png');
 
   /// File path: assets/png/yt_logo.png
   AssetGenImage get ytLogo => const AssetGenImage('assets/png/yt_logo.png');
@@ -42,8 +53,16 @@ class $AssetsPngGen {
       const AssetGenImage('assets/png/yt_logo_dark.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [coffee, movie, premiumLogo, ytLogo, ytLogoDark];
+  List<AssetGenImage> get values => [
+        coffee,
+        download,
+        movie,
+        premiumLogo,
+        tryFeature,
+        yourVideo,
+        ytLogo,
+        ytLogoDark
+      ];
 }
 
 class $AssetsSvgGen {

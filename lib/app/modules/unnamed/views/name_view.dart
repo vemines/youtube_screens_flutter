@@ -29,6 +29,7 @@ class _NameViewState extends State<NameView> {
           onPressed: () => Get.back(),
           icon: Icon(Icons.arrow_back),
         ),
+        title: Text("Name"),
         actions: [
           IconButton(
             onPressed: () {},
