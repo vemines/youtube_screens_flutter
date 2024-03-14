@@ -5,17 +5,17 @@ import 'package:youtube_screens/app/shared/widgets/common.dart';
 import 'package:youtube_screens/gen/assets.gen.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../../../shared/widgets/fake_bottom_nav.dart';
-import '../controllers/your_movie_controller.dart';
+import '../controllers/my_movie_controller.dart';
 
-class YourMovieView extends StatefulWidget {
-  const YourMovieView({super.key});
+class MyMovieView extends StatefulWidget {
+  const MyMovieView({super.key});
 
   @override
-  State<YourMovieView> createState() => _YourMovieViewState();
+  State<MyMovieView> createState() => _MyMovieViewState();
 }
 
-class _YourMovieViewState extends State<YourMovieView> {
-  final YourMovieController controller = Get.find<YourMovieController>();
+class _MyMovieViewState extends State<MyMovieView> {
+  final MyMovieController controller = Get.find<MyMovieController>();
 
   @override
   void initState() {
@@ -157,23 +157,19 @@ class _YourMovieViewState extends State<YourMovieView> {
       children: [
         ActionChip(
           label: Icon(Icons.tune),
-          side: BorderSide.none,
           onPressed: () {},
         ),
         ActionChip(
           label: Text("Video"),
           onPressed: () => controller.loadVideos(),
-          side: BorderSide.none,
         ),
         ActionChip(
           label: Text("Shorts"),
           onPressed: () => controller.loadShorts(),
-          side: BorderSide.none,
         ),
         ActionChip(
           label: Text("Lives"),
           onPressed: () => controller.loadLives(),
-          side: BorderSide.none,
         ),
       ].separateCenter(),
     );

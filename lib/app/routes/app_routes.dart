@@ -11,10 +11,13 @@ abstract class Routes {
   static const search = '/search';
   static const searchResult = '/search/:query';
   static const download = '/download';
-  static const yourMovie = '/your-movie';
+  static const myMovie = '/your-movie';
+  static const settings = '/settings';
+  static const settingDemo = '/settings/demo';
+  static const settingDemo2 = '/settings/demo2';
   static const myChannel = '/my-channel';
+
   static const channelSettings = '/my-channel/settings';
-  static const setings = '/setings';
   static const gereralSettings = '/setings/gereral';
   static const captionsSettings = '/setings/captions';
   static const abouts = '/setings/abouts';

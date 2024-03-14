@@ -52,17 +52,18 @@ class AppTheme {
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        backgroundColor: ColorName.darkPrimary,
+        backgroundColor: ColorName.darkPrimary, // bg filled button
       ),
     ),
     inputDecorationTheme: InputDecorationTheme().copyWith(
-      filled: true,
-      fillColor: ColorName.darkInputBg,
+      filled: true, // apply fill color
+      fillColor: ColorName.darkInputBg, // input fill color
     ),
     chipTheme: ChipThemeData().copyWith(
-      backgroundColor: Colors.grey.shade600.withOpacity(0.25),
+      backgroundColor: Colors.grey.shade600.withOpacity(0.25), // bg chip
+      side: BorderSide.none, // remove border
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(RadiusBorder.chip),
+        borderRadius: BorderRadius.circular(RadiusBorder.chip), // radius shape
       ),
     ),
   );

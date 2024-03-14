@@ -8,7 +8,7 @@ class PlaylistController extends GetxController {
 
   void loading() {
     isLoading.value = false;
-    // Future.delayed(Duration(seconds: 2)).then((_) {
+    // Future.delayed(Duration(seconds: 1)).then((_) {
     //   isLoading.value = false;
     // });
     playlists.value = PlaylistRepository.mock;

@@ -7,7 +7,10 @@ import 'package:youtube_screens/app/modules/playlist/bindings/playlist_binding.d
 import 'package:youtube_screens/app/modules/playlist/views/playlist_view.dart';
 import 'package:youtube_screens/app/modules/search/views/search_result_screen.dart';
 import 'package:youtube_screens/app/modules/search/views/search_view.dart';
-import 'package:youtube_screens/app/modules/yourMovie/views/your_movie_view.dart';
+import 'package:youtube_screens/app/modules/settings/views/setting_demo_screen.dart';
+import 'package:youtube_screens/app/modules/settings/views/setting_demo_sub_screen.dart';
+import 'package:youtube_screens/app/modules/settings/views/settings_view.dart';
+import 'package:youtube_screens/app/modules/myMovie/views/my_movie_view.dart';
 import '../modules/allSubscriptions/bindings/all_subscriptions_binding.dart';
 import '../modules/connectedApps/bindings/connected_apps_binding.dart';
 import '../modules/connectedApps/views/connected_apps_view.dart';
@@ -17,17 +20,20 @@ import '../modules/movies/views/movie_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/myChannel/bindings/my_channel_binding.dart';
+import '../modules/myChannel/views/my_channel_view.dart';
 import '../modules/search/bindings/search_binding.dart';
+import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/time_watched/bindings/time_watched_binding.dart';
 import '../modules/time_watched/views/time_watched_view.dart';
-import '../modules/yourMovie/bindings/your_movie_binding.dart';
+import '../modules/myMovie/bindings/my_movie_binding.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.yourMovie;
+  static const INITIAL = Routes.settings;
 
   static final routes = [
     //
@@ -92,9 +98,33 @@ class AppPages {
     ),
     //
     GetPage(
-      name: Routes.yourMovie,
-      page: () => const YourMovieView(),
-      binding: YourMovieBinding(),
+      name: Routes.myMovie,
+      page: () => const MyMovieView(),
+      binding: MyMovieBinding(),
+    ),
+    //
+    GetPage(
+      name: Routes.myChannel,
+      page: () => const MyChannelView(),
+      binding: MyChannelBinding(),
+    ),
+    //
+    GetPage(
+      name: Routes.settings,
+      page: () => const SettingsView(),
+      binding: SettingsBinding(),
+    ),
+    //
+    GetPage(
+      name: Routes.settingDemo,
+      page: () => const SettingDemoView(),
+      binding: SettingsBinding(),
+    ),
+    //
+    GetPage(
+      name: Routes.settingDemo2,
+      binding: SettingsBinding(),
+      page: () => const SettingDemoSubRouteView(),
     ),
   ];
 }

@@ -1,4 +1,5 @@
 import 'package:youtube_screens/app/data/models/video_model.dart';
+import 'package:youtube_screens/app/shared/extensions/datetime_extension.dart';
 
 class PlaylistModel {
   PlaylistModel({
@@ -23,5 +24,7 @@ class PlaylistModel {
   final bool private;
 
   String getPlaylistLength() => videos.length.toString();
+  String getLastestUpdate() => "Updated ${uploadAt.getTimeAgo()}";
   String getStatus() => private ? "🔒 Private" : "🌎 Public";
+  String getStatusMyChannel() => private ? "Private - Playlist" : "Public - Playlist";
 }

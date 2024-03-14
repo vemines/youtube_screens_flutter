@@ -9,7 +9,7 @@ class ConnectedAppsController extends GetxController {
   RxList<ConnectedAppModel> apps = <ConnectedAppModel>[].obs;
   Future<void> loadPosts() async {
     Future.delayed(const Duration(seconds: 1)).then((_) {
-      apps.value = [...ConnectedAppRepository.mock];
+      apps.value = ConnectedAppRepository.mock;
       isLoading.value = false;
     });
   }

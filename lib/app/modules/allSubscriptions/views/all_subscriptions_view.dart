@@ -50,30 +50,34 @@ class _AllSubscriptionsViewState extends State<AllSubscriptionsView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DropdownButton(
-                      value: controller.currentSortOption.value,
-                      padding: EdgeInsets.only(
-                        left: Dimensions.normal,
-                        right: Dimensions.small,
-                      ),
-                      icon: Icon(Icons.keyboard_arrow_down_outlined),
-                      underline: SizedBox(),
-                      items: controller.dropdownSortOptions
-                          .map(
-                            (data) => DropdownMenuItem<String>(
-                              value: data,
-                              child: Text(data),
-                            ),
-                          )
-                          .toList(),
-                      onChanged: (s) => controller.changeSortOption(
-                        s.toString(),
-                      ),
-                    ),
+                    _dropdownOptions(),
                     ...controller.subscriptions.map((sub) => subscriptionListTile(sub, context)).toList(),
                   ],
                 ),
               ),
+      ),
+    );
+  }
+
+  DropdownButton<String> _dropdownOptions() {
+    return DropdownButton(
+      value: controller.currentSortOption.value,
+      padding: EdgeInsets.only(
+        left: Dimensions.normal,
+        right: Dimensions.small,
+      ),
+      icon: Icon(Icons.keyboard_arrow_down_outlined),
+      underline: SizedBox(),
+      items: controller.dropdownSortOptions
+          .map(
+            (data) => DropdownMenuItem<String>(
+              value: data,
+              child: Text(data),
+            ),
+          )
+          .toList(),
+      onChanged: (s) => controller.changeSortOption(
+        s.toString(),
       ),
     );
   }

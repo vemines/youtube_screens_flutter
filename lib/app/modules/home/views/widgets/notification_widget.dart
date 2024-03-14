@@ -17,10 +17,18 @@ class NotificationWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: Dimensions.normal),
+            padding: EdgeInsets.only(top: Dimensions.large),
             child: Badge(
               backgroundColor: notification.isRead ? theme.colorScheme.background : theme.primaryColor,
               smallSize: BadgeSize.notification,
+            ),
+          ),
+          gapS(),
+          Padding(
+            padding: EdgeInsets.only(top: Dimensions.small),
+            child: Image.asset(
+              notification.iconChannel,
+              width: ImageSize.leadingNotification,
             ),
           ),
           gapS(),
@@ -28,10 +36,6 @@ class NotificationWidget extends StatelessWidget {
             child: ListTile(
               contentPadding: EdgeInsets.zero,
               titleAlignment: ListTileTitleAlignment.top,
-              leading: Image.asset(
-                notification.iconChannel,
-                width: ImageSize.leadingNotification,
-              ),
               title: Text(
                 notification.getTitle(),
                 maxLines: 3,

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class YourMovieController extends GetxController {
+class MyMovieController extends GetxController {
   RxList<Object> listVideos = <Object>[].obs;
   RxList<Object> listShorts = <Object>[].obs;
   RxList<Object> listLives = <Object>[].obs;

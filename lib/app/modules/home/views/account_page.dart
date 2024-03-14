@@ -182,7 +182,17 @@ class _PlayListWidget extends StatelessWidget {
                         child: Container(
                           color: context.theme.colorScheme.background,
                           padding: EdgeInsets.all(Dimensions.small),
-                          child: Text(playlist.getPlaylistLength()),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.playlist_play_outlined,
+                                size: IconSize.playlistLength,
+                              ),
+                              gapF(0.2),
+                              Text(playlist.getPlaylistLength()),
+                            ],
+                          ),
                         ),
                       ),
               ],
@@ -380,17 +390,20 @@ class _AccountListTile extends StatelessWidget {
     TextTheme textTheme = context.textTheme;
     return GestureDetector(
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          gapN(),
           CircleAvatar(
             radius: ImageSize.avatarAccountPage,
             child: Assets.png.coffee.image(),
           ),
           gapN(),
           Column(
-            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              gapN(),
               Text("VeMines", style: textTheme.headlineMedium),
               Row(
                 mainAxisSize: MainAxisSize.min,
@@ -400,7 +413,7 @@ class _AccountListTile extends StatelessWidget {
                 ],
               ),
             ],
-          )
+          ),
         ],
       ),
     );

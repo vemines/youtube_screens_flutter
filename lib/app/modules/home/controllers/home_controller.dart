@@ -17,7 +17,7 @@ class HomeController extends GetxController {
     super.onInit();
     try {
       dynamic arg = Get.arguments as Map<String, dynamic>;
-      int index = int.tryParse(arg["bottomNavIndex"].toString()) ?? 0;
+      int index = int.tryParse(arg["bottomNavIndex"].toString()) ?? 3;
       bottomNavIndex.value = index;
     } catch (_) {}
   }
@@ -27,21 +27,21 @@ class HomeController extends GetxController {
 
   RxList<VideoModel> homeVideos = <VideoModel>[].obs;
   Future<void> loadHomeVideo() async {
-    Future.delayed(const Duration(seconds: 2)).then((_) => homeVideos.value = VideoRepository.mock);
+    Future.delayed(const Duration(seconds: 1)).then((_) => homeVideos.value = VideoRepository.mock);
   }
 
   RxList<Subscriptions> posts = <Subscriptions>[].obs;
   RxList<SubscriptionModel> subscriptions = <SubscriptionModel>[].obs;
   Future<void> loadPosts() async {
-    Future.delayed(const Duration(seconds: 2)).then((_) {
+    Future.delayed(const Duration(seconds: 1)).then((_) {
       posts.value = [...PostRepository.mock, ...VideoRepository.mock];
-      subscriptions.value = [...SubcriptionRepository.mock];
+      subscriptions.value = SubcriptionRepository.mock;
     });
   }
 
   RxList<NotificationModel> notifications = <NotificationModel>[].obs;
   Future<void> loadNotifications() async {
-    Future.delayed(const Duration(seconds: 2)).then((_) {
+    Future.delayed(const Duration(seconds: 1)).then((_) {
       notifications.value = NotificationRepository.mock;
     });
   }
@@ -51,7 +51,7 @@ class HomeController extends GetxController {
   RxBool isloadUserData = false.obs;
 
   Future<void> loadUserData() async {
-    Future.delayed(const Duration(seconds: 2)).then((_) {
+    Future.delayed(const Duration(seconds: 1)).then((_) {
       watchHistory.value = VideoRepository.mock;
       playlists.value = PlaylistRepository.mock;
       isloadUserData.value = true;

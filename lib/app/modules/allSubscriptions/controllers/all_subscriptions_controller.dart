@@ -9,7 +9,7 @@ class AllSubscriptionsController extends GetxController {
   RxList<SubscriptionModel> subscriptions = <SubscriptionModel>[].obs;
   Future<void> loadPosts() async {
     Future.delayed(const Duration(seconds: 1)).then((_) {
-      subscriptions.value = [...SubcriptionRepository.mock];
+      subscriptions.value = SubcriptionRepository.mock;
       isLoading.value = false;
     });
   }
