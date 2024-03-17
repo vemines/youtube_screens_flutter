@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/extensions/string_extension.dart';
+import '../../../shared/constants/dimens.dart';
+import '../../../shared/extensions/string_extension.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/search_controller.dart';
 

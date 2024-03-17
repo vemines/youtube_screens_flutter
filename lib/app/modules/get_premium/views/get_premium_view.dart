@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../../gen/assets.gen.dart';
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/extensions/widget_extension.dart';

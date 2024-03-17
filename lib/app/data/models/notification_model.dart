@@ -1,4 +1,4 @@
-import 'package:youtube_screens/app/shared/extensions/datetime_extension.dart';
+import '../../shared/extensions/datetime_extension.dart';
 
 class NotificationModel {
   NotificationModel({

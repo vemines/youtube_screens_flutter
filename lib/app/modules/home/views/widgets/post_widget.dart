@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
-import 'package:youtube_screens/app/data/models/post_model.dart';
+
+import '../../../../data/models/post_model.dart';
 import '../../../../shared/constants/dimens.dart';
 import '../../../../shared/widgets/common.dart';
 

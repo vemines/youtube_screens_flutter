@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/extensions/num_extension.dart';
+import '../constants/dimens.dart';
+import '../extensions/num_extension.dart';
 import '../../../gen/colors.gen.dart';
 
 final robotoRegular = GoogleFonts.robotoSerif().fontFamily;

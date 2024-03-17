@@ -3,13 +3,13 @@
 ///  FlutterGen
 /// *****************************************************
 
+import 'package:flutter/services.dart';
 // coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/services.dart';
 
 class $AssetsJpgGen {
   const $AssetsJpgGen();
@@ -34,35 +34,22 @@ class $AssetsPngGen {
   AssetGenImage get movie => const AssetGenImage('assets/png/movie.png');
 
   /// File path: assets/png/premium_logo.png
-  AssetGenImage get premiumLogo =>
-      const AssetGenImage('assets/png/premium_logo.png');
+  AssetGenImage get premiumLogo => const AssetGenImage('assets/png/premium_logo.png');
 
   /// File path: assets/png/try_feature.png
-  AssetGenImage get tryFeature =>
-      const AssetGenImage('assets/png/try_feature.png');
+  AssetGenImage get tryFeature => const AssetGenImage('assets/png/try_feature.png');
 
   /// File path: assets/png/your_video.png
-  AssetGenImage get yourVideo =>
-      const AssetGenImage('assets/png/your_video.png');
+  AssetGenImage get yourVideo => const AssetGenImage('assets/png/your_video.png');
 
   /// File path: assets/png/yt_logo.png
   AssetGenImage get ytLogo => const AssetGenImage('assets/png/yt_logo.png');
 
   /// File path: assets/png/yt_logo_dark.png
-  AssetGenImage get ytLogoDark =>
-      const AssetGenImage('assets/png/yt_logo_dark.png');
+  AssetGenImage get ytLogoDark => const AssetGenImage('assets/png/yt_logo_dark.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        coffee,
-        download,
-        movie,
-        premiumLogo,
-        tryFeature,
-        yourVideo,
-        ytLogo,
-        ytLogoDark
-      ];
+  List<AssetGenImage> get values => [coffee, download, movie, premiumLogo, tryFeature, yourVideo, ytLogo, ytLogoDark];
 }
 
 class $AssetsSvgGen {
@@ -79,36 +66,28 @@ class $AssetsWebpGen {
   const $AssetsWebpGen();
 
   /// File path: assets/webp/large_feature_1.webp
-  AssetGenImage get largeFeature1 =>
-      const AssetGenImage('assets/webp/large_feature_1.webp');
+  AssetGenImage get largeFeature1 => const AssetGenImage('assets/webp/large_feature_1.webp');
 
   /// File path: assets/webp/large_feature_2.webp
-  AssetGenImage get largeFeature2 =>
-      const AssetGenImage('assets/webp/large_feature_2.webp');
+  AssetGenImage get largeFeature2 => const AssetGenImage('assets/webp/large_feature_2.webp');
 
   /// File path: assets/webp/large_feature_3.webp
-  AssetGenImage get largeFeature3 =>
-      const AssetGenImage('assets/webp/large_feature_3.webp');
+  AssetGenImage get largeFeature3 => const AssetGenImage('assets/webp/large_feature_3.webp');
 
   /// File path: assets/webp/large_feature_4.webp
-  AssetGenImage get largeFeature4 =>
-      const AssetGenImage('assets/webp/large_feature_4.webp');
+  AssetGenImage get largeFeature4 => const AssetGenImage('assets/webp/large_feature_4.webp');
 
   /// File path: assets/webp/small_feature_1.webp
-  AssetGenImage get smallFeature1 =>
-      const AssetGenImage('assets/webp/small_feature_1.webp');
+  AssetGenImage get smallFeature1 => const AssetGenImage('assets/webp/small_feature_1.webp');
 
   /// File path: assets/webp/small_feature_2.webp
-  AssetGenImage get smallFeature2 =>
-      const AssetGenImage('assets/webp/small_feature_2.webp');
+  AssetGenImage get smallFeature2 => const AssetGenImage('assets/webp/small_feature_2.webp');
 
   /// File path: assets/webp/small_feature_3.webp
-  AssetGenImage get smallFeature3 =>
-      const AssetGenImage('assets/webp/small_feature_3.webp');
+  AssetGenImage get smallFeature3 => const AssetGenImage('assets/webp/small_feature_3.webp');
 
   /// File path: assets/webp/small_feature_4.webp
-  AssetGenImage get smallFeature4 =>
-      const AssetGenImage('assets/webp/small_feature_4.webp');
+  AssetGenImage get smallFeature4 => const AssetGenImage('assets/webp/small_feature_4.webp');
 
   /// List of all assets
   List<AssetGenImage> get values => [

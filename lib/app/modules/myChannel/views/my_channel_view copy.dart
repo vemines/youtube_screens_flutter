@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:youtube_screens/app/shared/widgets/common.dart';
 import '../../../../gen/assets.gen.dart';
@@ -26,47 +24,51 @@ class _MyChannelViewState extends State<MyChannelView> with TickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    final onPrimary = context.theme.colorScheme.onPrimary;
     final textTheme = Get.context!.textTheme;
     final disableColor = Get.context!.theme.disabledColor;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        body: CustomScrollView(
-          scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          slivers: [
-            SliverAppBar(
-              automaticallyImplyLeading: false,
-              leading: IconButton(
-                onPressed: () => Get.back(),
-                icon: Icon(Icons.arrow_back),
-              ),
-              title: Text("MyChannel"),
-              actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.search),
-                ),
-                IconButton(
-                  icon: Icon(Icons.more_vert),
-                  onPressed: () {},
-                ),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            onPressed: () => Get.back(),
+            icon: Icon(Icons.arrow_back),
+          ),
+          title: Text("MyChannel"),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.more_vert),
+            ),
+          ].separateCenter(),
+        ),
+        body: Column(
+          children: [
+            _AccountListTile(),
+            TabBar(
+              labelColor: onPrimary,
+              controller: tabController,
+              indicatorColor: onPrimary,
+              unselectedLabelColor: context.theme.disabledColor,
+              isScrollable: true,
+              tabAlignment: TabAlignment.start, // Or TabAlignment.start for left alignment
+              tabs: [
+                Tab(child: Text("Home", style: context.textTheme.bodyLarge)),
+                Tab(child: Text("Playlist", style: context.textTheme.bodyLarge)),
               ],
-              pinned: true,
-              floating: false,
             ),
-            SliverToBoxAdapter(child: _AccountListTile()),
-            SliverPersistentHeader(
-              delegate: _PinnedHeaderDelegate(tabController),
-              pinned: true,
-            ),
-            SliverFillRemaining(
-              fillOverscroll: true,
+            Expanded(
               child: TabBarView(
                 controller: tabController,
                 children: [
                   ListView.builder(
                     padding: EdgeInsets.all(Dimensions.small),
-                    physics: NeverScrollableScrollPhysics(),
                     itemCount: controller.playlists.length + controller.subscriptions.length + 1,
                     itemBuilder: (context, index) {
                       if (index < controller.playlists.length)
@@ -112,7 +114,6 @@ class _MyChannelViewState extends State<MyChannelView> with TickerProviderStateM
                   ),
                   ListView.builder(
                     padding: EdgeInsets.all(Dimensions.small),
-                    physics: NeverScrollableScrollPhysics(),
                     itemCount: controller.playlists.length,
                     itemBuilder: (context, index) {
                       return _CustomListTileWidget(
@@ -131,42 +132,6 @@ class _MyChannelViewState extends State<MyChannelView> with TickerProviderStateM
         ),
       ),
     );
-  }
-}
-
-class _PinnedHeaderDelegate extends SliverPersistentHeaderDelegate {
-  _PinnedHeaderDelegate(this.tabController);
-  final TabController tabController;
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final colorScheme = context.theme.colorScheme;
-    return Container(
-      color: colorScheme.background,
-      child: TabBar(
-        labelColor: colorScheme.onPrimary,
-        controller: tabController,
-        indicatorColor: colorScheme.onPrimary,
-        unselectedLabelColor: context.theme.disabledColor,
-        isScrollable: true,
-        tabAlignment: TabAlignment.start, // Or TabAlignment.start for left alignment
-        tabs: [
-          Tab(child: Text("Home", style: context.textTheme.bodyLarge)),
-          Tab(child: Text("Playlist", style: context.textTheme.bodyLarge)),
-        ],
-      ),
-    );
-  }
-
-  @override
-  double get maxExtent => 48; // Height of the pinned widget
-
-  @override
-  double get minExtent => 48; // Height of the pinned widget
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
   }
 }
 

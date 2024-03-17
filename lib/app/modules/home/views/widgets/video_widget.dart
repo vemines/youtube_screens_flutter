@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/data/models/video_model.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
+import '../../../../data/models/video_model.dart';
+import '../../../../shared/constants/dimens.dart';
 import '../../../../shared/widgets/common.dart';
 
 class VideoWidget extends StatelessWidget {

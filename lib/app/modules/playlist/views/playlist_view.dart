@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/data/models/playlist_model.dart';
-import 'package:youtube_screens/app/data/models/video_model.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
-import 'package:youtube_screens/gen/assets.gen.dart';
-import 'package:youtube_screens/gen/colors.gen.dart';
+import '../../../data/models/playlist_model.dart';
+import '../../../data/models/video_model.dart';
+import '../../../shared/constants/dimens.dart';
+import '../../../shared/widgets/common.dart';
+import '../../../../gen/assets.gen.dart';
+import '../../../../gen/colors.gen.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/playlist_controller.dart';
 
@@ -240,7 +240,7 @@ class _PlaylistVideo extends StatelessWidget {
                   children: [
                     Text(
                       video.title,
-                      style: textTheme.titleSmall,
+                      style: textTheme.bodyMedium,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),

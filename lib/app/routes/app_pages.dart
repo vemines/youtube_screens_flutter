@@ -1,16 +1,16 @@
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/modules/allSubscriptions/views/all_subscriptions_view.dart';
-import 'package:youtube_screens/app/modules/download/bindings/download_binding.dart';
-import 'package:youtube_screens/app/modules/download/views/download_view.dart';
-import 'package:youtube_screens/app/modules/get_premium/views/get_premium_view.dart';
-import 'package:youtube_screens/app/modules/playlist/bindings/playlist_binding.dart';
-import 'package:youtube_screens/app/modules/playlist/views/playlist_view.dart';
-import 'package:youtube_screens/app/modules/search/views/search_result_screen.dart';
-import 'package:youtube_screens/app/modules/search/views/search_view.dart';
-import 'package:youtube_screens/app/modules/settings/views/setting_demo_screen.dart';
-import 'package:youtube_screens/app/modules/settings/views/setting_demo_sub_screen.dart';
-import 'package:youtube_screens/app/modules/settings/views/settings_view.dart';
-import 'package:youtube_screens/app/modules/myMovie/views/my_movie_view.dart';
+import '../modules/allSubscriptions/views/all_subscriptions_view.dart';
+import '../modules/download/bindings/download_binding.dart';
+import '../modules/download/views/download_view.dart';
+import '../modules/get_premium/views/get_premium_view.dart';
+import '../modules/playlist/bindings/playlist_binding.dart';
+import '../modules/playlist/views/playlist_view.dart';
+import '../modules/search/views/search_result_screen.dart';
+import '../modules/search/views/search_view.dart';
+import '../modules/settings/views/setting_demo_screen.dart';
+import '../modules/settings/views/setting_demo_sub_screen.dart';
+import '../modules/settings/views/settings_view.dart';
+import '../modules/myMovie/views/my_movie_view.dart';
 import '../modules/allSubscriptions/bindings/all_subscriptions_binding.dart';
 import '../modules/connectedApps/bindings/connected_apps_binding.dart';
 import '../modules/connectedApps/views/connected_apps_view.dart';
@@ -24,6 +24,7 @@ import '../modules/myChannel/bindings/my_channel_binding.dart';
 import '../modules/myChannel/views/my_channel_view.dart';
 import '../modules/search/bindings/search_binding.dart';
 import '../modules/settings/bindings/settings_binding.dart';
+import '../modules/static/index.dart';
 import '../modules/time_watched/bindings/time_watched_binding.dart';
 import '../modules/time_watched/views/time_watched_view.dart';
 import '../modules/myMovie/bindings/my_movie_binding.dart';
@@ -33,9 +34,14 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.settings;
+  static const INITIAL = Routes.myChannel;
 
   static final routes = [
+    //
+    GetPage(
+      name: "/",
+      page: () => const MainDemo(),
+    ),
     //
     GetPage(
       name: Routes.home,

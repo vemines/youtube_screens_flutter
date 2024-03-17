@@ -1,6 +1,7 @@
 import 'package:flutter_lorem/flutter_lorem.dart';
-import '../models/notification_model.dart';
+
 import '../../../gen/assets.gen.dart';
+import '../models/notification_model.dart';
 
 class NotificationRepository {
   static List<NotificationModel> mock = [

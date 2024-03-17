@@ -18,7 +18,6 @@ abstract class Routes {
   static const myChannel = '/my-channel';
 
   static const channelSettings = '/my-channel/settings';
-  static const gereralSettings = '/setings/gereral';
   static const captionsSettings = '/setings/captions';
   static const abouts = '/setings/abouts';
   static const watchOnTV = '/setings/watch-on-tv';

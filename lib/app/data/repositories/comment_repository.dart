@@ -1,6 +1,7 @@
 import 'package:flutter_lorem/flutter_lorem.dart';
-import '../models/comment_model.dart';
+
 import '../../../gen/assets.gen.dart';
+import '../models/comment_model.dart';
 
 class CommentRepository {
   static List<CommentModel> mock = [

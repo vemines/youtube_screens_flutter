@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
+import '../../../shared/widgets/common.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/name_controller.dart';
 

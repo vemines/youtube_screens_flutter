@@ -1,4 +1,4 @@
-import 'package:youtube_screens/app/data/repositories/video_repository.dart';
+import 'video_repository.dart';
 
 import '../../../gen/assets.gen.dart';
 

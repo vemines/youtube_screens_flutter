@@ -1,6 +1,5 @@
-import '../models/subscription_model.dart';
-
 import '../../../gen/assets.gen.dart';
+import '../models/subscription_model.dart';
 
 class SubcriptionRepository {
   static List<SubscriptionModel> mock = [

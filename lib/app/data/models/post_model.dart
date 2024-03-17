@@ -1,5 +1,4 @@
 import '../../shared/extensions/datetime_extension.dart';
-
 import 'comment_model.dart';
 import 'subscriptions_abs.dart';
 

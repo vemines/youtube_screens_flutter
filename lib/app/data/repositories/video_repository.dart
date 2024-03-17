@@ -1,7 +1,6 @@
 import 'package:flutter_lorem/flutter_lorem.dart';
 
 import '../../../gen/assets.gen.dart';
-
 import '../models/video_model.dart';
 
 class VideoRepository {

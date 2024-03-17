@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/data/models/notification_model.dart';
-import 'package:youtube_screens/app/data/models/playlist_model.dart';
-import 'package:youtube_screens/app/data/repositories/notification_repository.dart';
-import 'package:youtube_screens/app/data/repositories/playlist_repository.dart';
-import 'package:youtube_screens/app/data/repositories/subcription_repository.dart';
+import '../../../data/models/notification_model.dart';
+import '../../../data/models/playlist_model.dart';
+import '../../../data/repositories/notification_repository.dart';
+import '../../../data/repositories/playlist_repository.dart';
+import '../../../data/repositories/subcription_repository.dart';
 import '../../../data/models/subscription_model.dart';
 import '../../../data/models/video_model.dart';
 import '../../../data/repositories/post_repository.dart';

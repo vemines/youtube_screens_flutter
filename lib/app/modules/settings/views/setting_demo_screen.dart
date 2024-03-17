@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
+import '../../../shared/constants/dimens.dart';
+import '../../../shared/widgets/common.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/settings_controller.dart';
 
@@ -21,6 +22,7 @@ class _SettingDemoViewState extends State<SettingDemoView> {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = context.textTheme;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -30,11 +32,30 @@ class _SettingDemoViewState extends State<SettingDemoView> {
         ),
         title: Text("Setting all components"),
       ),
-      body: NoScrollBarWidget(
-        child: Column(
-          children: [],
-        ),
-      ),
+      body: Obx(() => NoScrollBarWidget(
+            child: Padding(
+              padding: const EdgeInsets.all(Dimensions.normal),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Radio List title demo",
+                    style: textTheme.bodyLarge!.copyWith(fontSize: 18),
+                  ),
+                  gapN(),
+                  ...controller.radioOptions.map(
+                    (e) => RadioListTile<String>(
+                      value: e,
+                      title: Text(e, style: textTheme.bodyLarge),
+                      groupValue: controller.radioSelected.value,
+                      contentPadding: EdgeInsets.zero,
+                      onChanged: (s) => controller.changeRadioSelected(s),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )),
     );
   }
 }

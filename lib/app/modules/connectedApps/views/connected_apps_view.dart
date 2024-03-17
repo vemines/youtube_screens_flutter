@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/data/models/connected_app.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
+import '../../../data/models/connected_app.dart';
+import '../../../shared/constants/dimens.dart';
+import '../../../shared/widgets/common.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/connected_apps_controller.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter_lorem/flutter_lorem.dart';
-import '../models/post_model.dart';
-import 'comment_repository.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../models/post_model.dart';
+import 'comment_repository.dart';
 
 class PostRepository {
   static List<PostModel> mock = [

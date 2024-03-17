@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
+import '../../../shared/constants/dimens.dart';
+import '../../../shared/widgets/common.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/settings_controller.dart';
 
@@ -29,7 +29,7 @@ class _SettingsViewState extends State<SettingsView> {
       body: NoScrollBarWidget(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: (controller.settings
+          children: (availabelSettings
                   .map(
                     (e) => ListTile(
                       title: Text(e["title"], style: textTheme.bodyLarge),

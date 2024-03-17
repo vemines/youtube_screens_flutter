@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
-import 'package:youtube_screens/gen/assets.gen.dart';
+import '../../../shared/widgets/common.dart';
+import '../../../../gen/assets.gen.dart';
 import '../../../shared/extensions/widget_extension.dart';
 import '../controllers/download_controller.dart';
 

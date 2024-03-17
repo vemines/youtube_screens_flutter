@@ -8,6 +8,7 @@ I current using Revanced Youtube, so it may not like your YouTube apps
 Because it is a lot of settings, so i just write setting widgets
 
 ## First run
+## please run "flutter pub upgrade web" for make sure upgrade web package based on your flutter sdk version
 
 If you already install make (If window can install thought Nodejs additional tools)
 ```cmd

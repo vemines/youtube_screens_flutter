@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/routes/app_pages.dart';
+import '../../routes/app_pages.dart';
 
 import '../../../gen/colors.gen.dart';
 

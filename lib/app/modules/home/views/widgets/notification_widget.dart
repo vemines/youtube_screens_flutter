@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/data/models/notification_model.dart';
-import 'package:youtube_screens/app/shared/constants/dimens.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
+import '../../../../data/models/notification_model.dart';
+import '../../../../shared/constants/dimens.dart';
+import '../../../../shared/widgets/common.dart';
 
 class NotificationWidget extends StatelessWidget {
   const NotificationWidget({super.key, required this.notification});
