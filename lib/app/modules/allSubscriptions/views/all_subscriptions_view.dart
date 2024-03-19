@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../data/models/subscription_model.dart';
 import '../../../shared/constants/dimens.dart';
-import '../../../shared/widgets/common.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/common.dart';
 import '../controllers/all_subscriptions_controller.dart';
 
 class AllSubscriptionsView extends StatefulWidget {

@@ -5,7 +5,9 @@ class DownloadController extends GetxController {
 
   RxList<Object> downloads = <Object>[].obs;
 
-  void loading() {
+  @override
+  void onInit() {
+    super.onInit();
     Future.delayed(Duration(seconds: 1)).then((_) {
       isLoading.value = false;
     });

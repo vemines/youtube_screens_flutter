@@ -17,11 +17,6 @@ class GetPremiumView extends StatefulWidget {
 
 class _GetPremiumViewState extends State<GetPremiumView> {
   final GetPremiumController controller = Get.find<GetPremiumController>();
-  @override
-  void initState() {
-    super.initState();
-    controller.loading();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -144,9 +139,7 @@ class _FirstSection extends StatelessWidget {
             style: textTheme.bodySmall,
             textAlign: TextAlign.center,
           ),
-          InkWell(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
+          noSplashInkWell(
             onTap: () {},
             child: Text(
               "Restrictions apply.",
@@ -479,9 +472,7 @@ class _TryNowSection extends StatelessWidget {
             style: textTheme.bodySmall,
             textAlign: TextAlign.center,
           ),
-          InkWell(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
+          noSplashInkWell(
             onTap: () {},
             child: Text(
               "Recurring billing. ",
@@ -526,9 +517,7 @@ class _QASection extends StatelessWidget {
         if (guideText.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(top: Dimensions.normal),
-            child: InkWell(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
+            child: noSplashInkWell(
               onTap: () {},
               child: Text(
                 guideText,

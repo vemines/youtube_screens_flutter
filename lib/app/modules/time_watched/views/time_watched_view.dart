@@ -2,11 +2,11 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../../gen/colors.gen.dart';
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/extensions/num_extension.dart';
 import '../../../shared/extensions/widget_extension.dart';
-
-import '../../../../gen/colors.gen.dart';
 import '../../../shared/widgets/common.dart';
 import '../controllers/time_watched_controller.dart';
 

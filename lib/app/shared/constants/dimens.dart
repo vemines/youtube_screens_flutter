@@ -17,6 +17,8 @@ class IconSize {
   static const double appbarTextField = 15.0;
   static const double playlistLength = 16.0;
   static const double pickPlanGetPremium = 30.0;
+  static const double minimal = 16.0;
+  static const double channelSetting = 40.0;
 }
 
 class ImageSize {
@@ -26,6 +28,7 @@ class ImageSize {
   static const double myChannelImageHeight = 100.0;
   static const double myChannelImageWidth = 160.0;
   static const double avatarAccountPage = 40.0;
+  static const double offerFromHeight = 100.0;
 }
 
 class BadgeSize {

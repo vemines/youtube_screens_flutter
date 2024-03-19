@@ -15,12 +15,6 @@ class DownloadView extends StatefulWidget {
 class _DownloadViewState extends State<DownloadView> {
   final DownloadController controller = Get.find<DownloadController>();
 
-  @override
-  void initState() {
-    super.initState();
-    controller.loading();
-  }
-
   Widget downloadedVideos() => Container();
 
   @override

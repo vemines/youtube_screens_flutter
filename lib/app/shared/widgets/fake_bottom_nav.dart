@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../routes/app_pages.dart';
 
 import '../../../gen/colors.gen.dart';
+import '../../routes/app_pages.dart';
 
 class FakeBottomNavibar extends StatelessWidget {
   const FakeBottomNavibar({super.key});

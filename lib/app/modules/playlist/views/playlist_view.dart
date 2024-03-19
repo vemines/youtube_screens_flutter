@@ -22,12 +22,6 @@ class _PlaylistViewState extends State<PlaylistView> {
   final PlaylistController controller = Get.find<PlaylistController>();
 
   @override
-  void initState() {
-    super.initState();
-    controller.loading();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -212,9 +206,7 @@ class _PlaylistVideo extends StatelessWidget {
     final TextTheme textTheme = context.textTheme;
     return Row(
       children: [
-        InkWell(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
+        noSplashInkWell(
           onTap: () {},
           child: Padding(
             padding: const EdgeInsets.only(right: Dimensions.small),
@@ -255,10 +247,8 @@ class _PlaylistVideo extends StatelessWidget {
                 ),
               ),
               gapN(),
-              InkWell(
+              noSplashInkWell(
                 onTap: () {},
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
                 child: Padding(
                   padding: const EdgeInsets.only(
                     right: 4,

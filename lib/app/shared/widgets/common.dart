@@ -44,3 +44,10 @@ class NoScrollBarWidget extends StatelessWidget {
 }
 
 Widget centerIndicator() => Center(child: CircularProgressIndicator());
+
+Widget noSplashInkWell({required Widget child, required Function() onTap}) => InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      child: child,
+      onTap: onTap,
+    );

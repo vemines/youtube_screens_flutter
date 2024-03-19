@@ -11,7 +11,7 @@ class NotificationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = context.theme;
-    return InkWell(
+    return noSplashInkWell(
       onTap: () {},
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,7 @@ class NotificationWidget extends StatelessWidget {
             ),
           ),
           gapS(),
-          InkWell(
+          noSplashInkWell(
             onTap: () {},
             child: Icon(
               Icons.more_vert_outlined,

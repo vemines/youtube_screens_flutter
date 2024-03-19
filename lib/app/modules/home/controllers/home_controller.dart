@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
+
 import '../../../data/models/notification_model.dart';
 import '../../../data/models/playlist_model.dart';
+import '../../../data/models/subscription_model.dart';
+import '../../../data/models/subscriptions_abs.dart';
+import '../../../data/models/video_model.dart';
 import '../../../data/repositories/notification_repository.dart';
 import '../../../data/repositories/playlist_repository.dart';
-import '../../../data/repositories/subcription_repository.dart';
-import '../../../data/models/subscription_model.dart';
-import '../../../data/models/video_model.dart';
 import '../../../data/repositories/post_repository.dart';
+import '../../../data/repositories/subcription_repository.dart';
 import '../../../data/repositories/video_repository.dart';
-
-import '../../../data/models/subscriptions_abs.dart';
 
 class HomeController extends GetxController {
   @override

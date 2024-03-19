@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../routes/app_pages.dart';
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/widgets/common.dart';
-import '../../../routes/app_pages.dart';
 import '../controllers/settings_controller.dart';
 
 class SettingDemoView extends StatefulWidget {

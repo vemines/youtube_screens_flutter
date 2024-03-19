@@ -78,9 +78,7 @@ class _SubscriptionsBar extends GetView<HomeController> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: Dimensions.small),
-          child: InkWell(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
+          child: noSplashInkWell(
             onTap: () {},
             child: Text(
               "All",
@@ -95,9 +93,8 @@ class _SubscriptionsBar extends GetView<HomeController> {
   }
 
   Widget _subscriptionIcon(BuildContext context, SubscriptionModel sub) {
-    return InkWell(
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
+    return noSplashInkWell(
+      onTap: () {},
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

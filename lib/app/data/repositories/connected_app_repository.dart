@@ -1,5 +1,5 @@
 import '../../../gen/assets.gen.dart';
-import '../models/connected_app.dart';
+import '../models/connected_app_model.dart';
 
 class ConnectedAppRepository {
   static List<ConnectedAppModel> mock = [

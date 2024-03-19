@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/widgets/common.dart';
+import '../../../shared/widgets/common.dart';
+import '../../../shared/widgets/fake_bottom_nav.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/extensions/widget_extension.dart';
@@ -86,7 +85,7 @@ class _MyChannelViewState extends State<MyChannelView> with TickerProviderStateM
                       return _CustomListTileWidget(
                         title: controller.subscriptions[subcribeIndex].nameChannel,
                         subtitle: controller.subscriptions[subcribeIndex].tagChannel,
-                        lineThree: InkWell(
+                        lineThree: noSplashInkWell(
                           onTap: () {},
                           child: Padding(
                             padding: const EdgeInsets.only(top: Dimensions.small),
@@ -129,6 +128,7 @@ class _MyChannelViewState extends State<MyChannelView> with TickerProviderStateM
             ),
           ],
         ),
+        bottomNavigationBar: FakeBottomNavibar(),
       ),
     );
   }
@@ -137,12 +137,14 @@ class _MyChannelViewState extends State<MyChannelView> with TickerProviderStateM
 class _PinnedHeaderDelegate extends SliverPersistentHeaderDelegate {
   _PinnedHeaderDelegate(this.tabController);
   final TabController tabController;
+  double height = 48;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     final colorScheme = context.theme.colorScheme;
     return Container(
       color: colorScheme.background,
+      height: height,
       child: TabBar(
         labelColor: colorScheme.onPrimary,
         controller: tabController,
@@ -159,10 +161,10 @@ class _PinnedHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 48; // Height of the pinned widget
+  double get maxExtent => height; // Height of the pinned widget
 
   @override
-  double get minExtent => 48; // Height of the pinned widget
+  double get minExtent => height; // Height of the pinned widget
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
@@ -185,7 +187,7 @@ class _CustomListTileWidget extends StatelessWidget {
   final String? lengthPlaylist;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return noSplashInkWell(
       onTap: () {},
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: Dimensions.small),
@@ -234,7 +236,7 @@ class _CustomListTileWidget extends StatelessWidget {
               ),
             ),
             gapS(),
-            InkWell(
+            noSplashInkWell(
               onTap: () {},
               child: Icon(
                 Icons.more_vert_outlined,

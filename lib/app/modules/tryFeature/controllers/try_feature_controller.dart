@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 
-class GetPremiumController extends GetxController {
+class TryFeatureController extends GetxController {
   final RxBool isLoading = true.obs;
+
   @override
   void onInit() {
     super.onInit();

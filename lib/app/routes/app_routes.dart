@@ -16,13 +16,14 @@ abstract class Routes {
   static const settingDemo = '/settings/demo';
   static const settingDemo2 = '/settings/demo2';
   static const myChannel = '/my-channel';
-
-  static const channelSettings = '/my-channel/settings';
+  static const watchOnTV = '/watch-on-tv';
   static const captionsSettings = '/setings/captions';
-  static const abouts = '/setings/abouts';
-  static const watchOnTV = '/setings/watch-on-tv';
-  static const privacy = '/setings/privacy';
-  static const experimentalNewFeature = '/setings/experimental-feature';
-  static const purchasesAndMembership = '/setings/purchases-and-membership';
+  static const experimentalFeature = '/setings/experimental-feature';
+  static const channelSettings = '/my-channel/settings';
+  static const purchasesAndMembership = '/purchases-and-membership';
+  static const channelMembership = '/purchases-and-membership/channel';
+  static const channelMembershipDetail = '/purchases-and-membership/channel/detail';
+  static const inactiveMembership = '/purchases-and-membership/inactive';
+  static const inactiveMembershipDetail = '/purchases-and-membership/inactive/detail';
   static const sponsorBlock = '/setings/sponsor-block';
 }

@@ -6,7 +6,9 @@ import '../../../data/repositories/playlist_repository.dart';
 class PlaylistController extends GetxController {
   final RxBool isLoading = true.obs;
 
-  void loading() {
+  @override
+  void onInit() {
+    super.onInit();
     isLoading.value = false;
     // Future.delayed(Duration(seconds: 1)).then((_) {
     //   isLoading.value = false;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../shared/widgets/common.dart';
+
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/common.dart';
 import '../controllers/name_controller.dart';
 
 class NameView extends StatefulWidget {
@@ -13,12 +14,6 @@ class NameView extends StatefulWidget {
 
 class _NameViewState extends State<NameView> {
   final NameController controller = Get.find<NameController>();
-
-  @override
-  void initState() {
-    super.initState();
-    controller.loading();
-  }
 
   @override
   Widget build(BuildContext context) {

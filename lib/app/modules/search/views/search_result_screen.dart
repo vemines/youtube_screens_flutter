@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../home/views/widgets/video_widget.dart';
+
 import '../../../routes/app_pages.dart';
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../home/views/widgets/video_widget.dart';
 import '../controllers/search_controller.dart';
 
 class SearchResultView extends StatefulWidget {

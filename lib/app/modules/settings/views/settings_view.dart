@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../shared/constants/dimens.dart';
-import '../../../shared/widgets/common.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/common.dart';
 import '../controllers/settings_controller.dart';
 
 class SettingsView extends StatefulWidget {

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/extensions/string_extension.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/common.dart';
 import '../controllers/search_controller.dart';
 
 class AppSearchView extends StatefulWidget {
@@ -46,9 +48,7 @@ class _AppSearchViewState extends State<AppSearchView> {
             ),
             suffixIcon: textController.text.isEmpty
                 ? null
-                : InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
+                : noSplashInkWell(
                     onTap: () {
                       textController.clear();
                       if (mounted) setState(() {});

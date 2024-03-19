@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../data/models/connected_app.dart';
+
+import '../../../data/models/connected_app_model.dart';
 import '../../../shared/constants/dimens.dart';
-import '../../../shared/widgets/common.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/common.dart';
 import '../controllers/connected_apps_controller.dart';
 
 class ConnectedAppsView extends StatefulWidget {
