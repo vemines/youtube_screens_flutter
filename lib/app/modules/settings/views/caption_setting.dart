@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../shared/constants/dimens.dart';
-import '../../../shared/widgets/common.dart';
+
 import '../../../../gen/assets.gen.dart';
+import '../../../shared/constants/dimens.dart';
+import '../../../shared/widgets/appbar.dart';
+import '../../../shared/widgets/common.dart';
 
 class CaptionSetting extends StatelessWidget {
   const CaptionSetting({super.key});
@@ -11,13 +13,12 @@ class CaptionSetting extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextTheme textTheme = context.textTheme;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: AppBarTitleLeadingBack(
+          title: "Caption size and style",
+          onBack: () => Get.back(),
         ),
-        title: Text("Caption size and style"),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -27,44 +28,54 @@ class CaptionSetting extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                Assets.jpg.sample.image(),
-                Positioned.fill(
-                  bottom: Dimensions.normal,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Text(
-                      "Caption will look like this",
-                      style: textTheme.titleLarge!.copyWith(
-                        backgroundColor: Colors.black,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            _SampleCaptionImage(),
             ListTile(
-              title: Text("TextSize", style: context.textTheme.bodyLarge),
-              subtitle: Text("Normal", style: context.textTheme.bodySmall),
+              title: Text("TextSize", style: textTheme.bodyLarge),
+              subtitle: Text("Normal", style: textTheme.bodySmall),
               onTap: () {},
             ),
             divider(),
             ListTile(
-              title: Text("Caption Style", style: context.textTheme.bodyLarge),
-              subtitle: Text("White on black", style: context.textTheme.bodySmall),
+              title: Text("Caption Style", style: textTheme.bodyLarge),
+              subtitle: Text("White on black", style: textTheme.bodySmall),
               onTap: () {},
             ),
             divider(),
             Padding(
               padding: const EdgeInsets.all(Dimensions.normal),
-              child: Text("Not all apps support these settings", style: context.textTheme.bodyMedium),
+              child: Text("Not all apps support these settings", style: textTheme.bodyMedium),
             )
           ],
         ),
       ),
+    );
+  }
+}
+
+class _SampleCaptionImage extends StatelessWidget {
+  const _SampleCaptionImage();
+
+  @override
+  Widget build(BuildContext context) {
+    final TextTheme textTheme = context.textTheme;
+    return Stack(
+      children: [
+        Assets.jpg.sample.image(),
+        Positioned.fill(
+          bottom: Dimensions.normal,
+          child: Container(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              "Caption will look like this",
+              style: textTheme.titleLarge!.copyWith(
+                backgroundColor: Colors.black,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

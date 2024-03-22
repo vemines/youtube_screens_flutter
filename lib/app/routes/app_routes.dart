@@ -2,6 +2,7 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   static const home = '/home';
+  static const watch = '/watch';
   static const timeWatched = '/time-watched';
   static const getPremium = '/get-premium';
   static const movies = '/movies';
@@ -11,13 +12,13 @@ abstract class Routes {
   static const search = '/search';
   static const searchResult = '/search/:query';
   static const download = '/download';
-  static const myMovie = '/your-movie';
+  static const rentMovie = '/rent-movie';
   static const settings = '/settings';
   static const settingDemo = '/settings/demo';
   static const settingDemo2 = '/settings/demo2';
-  static const myChannel = '/my-channel';
+  static const channel = '/my-channel';
   static const watchOnTV = '/watch-on-tv';
-  static const captionsSettings = '/setings/captions';
+  static const captionSettings = '/setings/captions';
   static const experimentalFeature = '/setings/experimental-feature';
   static const channelSettings = '/my-channel/settings';
   static const purchasesAndMembership = '/purchases-and-membership';

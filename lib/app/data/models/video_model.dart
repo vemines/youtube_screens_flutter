@@ -1,8 +1,6 @@
-import '../../shared/extensions/num_extension.dart';
-
 import '../../shared/extensions/datetime_extension.dart';
+import '../../shared/extensions/num_extension.dart';
 import '../../shared/utils/formatters/viewed.dart';
-
 import 'subscriptions_abs.dart';
 
 class VideoModel extends Subscriptions {

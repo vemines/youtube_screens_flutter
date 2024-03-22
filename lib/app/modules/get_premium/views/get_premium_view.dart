@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../gen/assets.gen.dart';
+import '../../../routes/app_pages.dart';
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/appbar.dart';
 import '../../../shared/widgets/common.dart';
 import '../controllers/get_premium_controller.dart';
 
@@ -21,31 +23,21 @@ class _GetPremiumViewState extends State<GetPremiumView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leadingWidth: 30,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: AppBarTitleWithSearchAndMore(
+          title: "Get YouTube Premium",
+          onBack: () => Get.back(),
+          searchOnPressed: () => Get.toNamed(Routes.search),
+          moreOnPressed: () {},
         ),
-        title: Text("Get YouTube Premium"),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
-          ),
-        ].separateCenter(),
       ),
       body: Obx(() => controller.isLoading.value
           ? centerIndicator()
           : NoScrollBarWidget(
               child: Column(
                 children: [
-                  _FirstSection(),
+                  _MainSection(),
                   _SmallFeatureSection(),
                   _PickPlanSection(),
                   _LargeFeatureSection(),
@@ -59,8 +51,8 @@ class _GetPremiumViewState extends State<GetPremiumView> {
   }
 }
 
-class _FirstSection extends StatelessWidget {
-  const _FirstSection();
+class _MainSection extends StatelessWidget {
+  const _MainSection();
 
   @override
   Widget build(BuildContext context) {
@@ -155,25 +147,34 @@ class _FirstSection extends StatelessWidget {
   }
 }
 
+class _SmallFeartureWidget extends StatelessWidget {
+  const _SmallFeartureWidget(this.image, this.description);
+  final Image image;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Flexible(
+          flex: 2,
+          child: image,
+        ),
+        gapN(),
+        Flexible(
+          flex: 5,
+          child: Text(
+            description,
+            style: Get.context!.textTheme.bodyMedium!.copyWith(fontSize: 16),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 class _SmallFeatureSection extends StatelessWidget {
   const _SmallFeatureSection();
-
-  Widget _rowFeature(Image image, String description) => Row(
-        children: [
-          Flexible(
-            flex: 2,
-            child: image,
-          ),
-          gapN(),
-          Flexible(
-            flex: 5,
-            child: Text(
-              description,
-              style: Get.context!.textTheme.bodyMedium!.copyWith(fontSize: 16),
-            ),
-          ),
-        ],
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -181,19 +182,19 @@ class _SmallFeatureSection extends StatelessWidget {
       padding: EdgeInsets.all(Dimensions.large),
       child: Column(
         children: [
-          _rowFeature(
+          _SmallFeartureWidget(
             Assets.webp.smallFeature1.image(),
             "Ad-free so you can immerse in your favorite videos without interruption",
           ),
-          _rowFeature(
+          _SmallFeartureWidget(
             Assets.webp.smallFeature2.image(),
             "Download videos to watch later when you’re offline or on the go",
           ),
-          _rowFeature(
+          _SmallFeartureWidget(
             Assets.webp.smallFeature3.image(),
             "Background play so you can watch while using other apps or with your screen locked",
           ),
-          _rowFeature(
+          _SmallFeartureWidget(
             Assets.webp.smallFeature4.image(),
             "Stream all the music you want to hear, ad-free on the YouTube Music app",
           ),
@@ -203,18 +204,25 @@ class _SmallFeatureSection extends StatelessWidget {
   }
 }
 
-class _PickPlanSection extends StatelessWidget {
-  const _PickPlanSection();
+class _PlanWidget extends StatelessWidget {
+  _PlanWidget({
+    required this.iconData,
+    required this.planTitle,
+    required this.planPrice,
+    required this.spanVat,
+    required this.spanPrimary,
+    this.isStudent = false,
+  });
 
-  Widget _planWidget({
-    required BuildContext context,
-    required IconData iconData,
-    required String planTitle,
-    required String planPrice,
-    required String spanVat,
-    required String spanPrimary,
-    bool isStudent = false,
-  }) {
+  final IconData iconData;
+  final String planTitle;
+  final String planPrice;
+  final String spanVat;
+  final String spanPrimary;
+  final bool isStudent;
+
+  @override
+  Widget build(BuildContext context) {
     final TextTheme textTheme = context.textTheme;
     Widget getPremiumText = Text(
       "Get YouTube Premium",
@@ -283,6 +291,10 @@ class _PickPlanSection extends StatelessWidget {
       ],
     );
   }
+}
+
+class _PickPlanSection extends StatelessWidget {
+  const _PickPlanSection();
 
   @override
   Widget build(BuildContext context) {
@@ -297,26 +309,23 @@ class _PickPlanSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _planWidget(
+          _PlanWidget(
             iconData: Icons.person_outline,
-            context: context,
             planTitle: "Individual",
             planPrice: "₫79,000/month",
             spanVat: "Excludes VAT. Free trial for eligible new members only. ",
             spanPrimary: "Restrictions apply. ",
           ),
-          _planWidget(
+          _PlanWidget(
             iconData: Icons.groups_3_outlined,
-            context: context,
             planTitle: "Family",
             planPrice: "₫149,000/month",
             spanVat:
                 "Excludes VAT. Add up to 5 family members (ages 13+) in your household. Free trial for eligible new members only. ",
             spanPrimary: "Restrictions apply. ",
           ),
-          _planWidget(
+          _PlanWidget(
             iconData: Icons.school_outlined,
-            context: context,
             planTitle: "Student",
             planPrice: "₫49,000/month",
             spanVat:
@@ -330,26 +339,35 @@ class _PickPlanSection extends StatelessWidget {
   }
 }
 
+class _LargeFeatureWidget extends StatelessWidget {
+  const _LargeFeatureWidget({
+    required this.image,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final Widget image;
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        image,
+        Text(
+          title,
+          style: context.textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w900),
+        ),
+        Text(subtitle, style: context.textTheme.titleMedium),
+      ].separateCenter(),
+    );
+  }
+}
+
 class _LargeFeatureSection extends StatelessWidget {
   const _LargeFeatureSection();
-
-  Widget _largeFeature({
-    required Widget image,
-    required String title,
-    required String subtitle,
-    required BuildContext context,
-  }) =>
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          image,
-          Text(
-            title,
-            style: context.textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w900),
-          ),
-          Text(subtitle, style: context.textTheme.titleMedium),
-        ].separateCenter(),
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -361,22 +379,19 @@ class _LargeFeatureSection extends StatelessWidget {
             "Keep playing what you love - uninterrupted",
             style: context.textTheme.displaySmall,
           ),
-          _largeFeature(
-            context: context,
+          _LargeFeatureWidget(
             image: Assets.webp.largeFeature1.image(),
             title: "Unlimited ad-free videos",
             subtitle:
                 "Immerse in more of your favorite videos without waiting for ads. Find helpful how-to’s, try new recipes, or work out with your favorite creators — all without any interruptions.",
           ),
-          _largeFeature(
-            context: context,
+          _LargeFeatureWidget(
             image: Assets.webp.largeFeature2.image(),
             title: "Enjoy videos offline",
             subtitle:
                 "Watch anytime, anywhere — download videos and watch them whenever, wherever, without the need for cell data or WiFi.",
           ),
-          _largeFeature(
-            context: context,
+          _LargeFeatureWidget(
             image: Assets.webp.largeFeature3.image(),
             title: "Background play",
             subtitle:

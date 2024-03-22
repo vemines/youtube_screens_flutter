@@ -1,8 +1,6 @@
-import 'video_repository.dart';
-
 import '../../../gen/assets.gen.dart';
-
 import '../models/playlist_model.dart';
+import 'video_repository.dart';
 
 class PlaylistRepository {
   static List<PlaylistModel> mock = [

@@ -3,29 +3,23 @@ import 'package:get/get.dart';
 
 import '../../../shared/constants/dimens.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/appbar.dart';
 import '../../../shared/widgets/common.dart';
 import '../controllers/settings_controller.dart';
 
-class SettingsView extends StatefulWidget {
+class SettingsView extends GetView<SettingsController> {
   const SettingsView({super.key});
 
-  @override
-  State<SettingsView> createState() => _SettingsViewState();
-}
-
-class _SettingsViewState extends State<SettingsView> {
-  final SettingsController controller = Get.find<SettingsController>();
   @override
   Widget build(BuildContext context) {
     final TextTheme textTheme = context.textTheme;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: AppBarTitleLeadingBack(
+          title: "Settings",
+          onBack: () => Get.back(),
         ),
-        title: Text("Settings"),
       ),
       body: NoScrollBarWidget(
         child: Column(

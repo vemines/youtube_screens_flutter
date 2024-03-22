@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:youtube_screens/app/shared/widgets/appbar.dart';
 
 import '../../../../gen/colors.gen.dart';
 import '../../../shared/constants/dimens.dart';
@@ -16,15 +17,12 @@ class TimeWatchedView extends GetView<TimeWatchedController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Time watched'),
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: () => Get.back(),
-            icon: Icon(Icons.close_outlined),
-          ),
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: AppBarTitleActionBack(
+          title: "Time watched",
+          onBack: () => Get.back(),
+        ),
       ),
       body: NoScrollBarWidget(
         child: Column(

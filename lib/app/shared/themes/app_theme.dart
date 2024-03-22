@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../gen/colors.gen.dart';
 import '../constants/dimens.dart';
 import '../extensions/num_extension.dart';
-import '../../../gen/colors.gen.dart';
 
 final robotoRegular = GoogleFonts.robotoSerif().fontFamily;
 
@@ -30,7 +31,6 @@ class AppTheme {
     colorScheme: ColorScheme.dark().copyWith(
       onPrimary: ColorName.white,
       background: ColorName.black,
-      primaryContainer: ColorName.darkPrimaryContainer,
       error: ColorName.darkError,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

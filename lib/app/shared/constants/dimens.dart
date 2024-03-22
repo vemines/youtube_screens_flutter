@@ -17,8 +17,9 @@ class IconSize {
   static const double appbarTextField = 15.0;
   static const double playlistLength = 16.0;
   static const double pickPlanGetPremium = 30.0;
-  static const double minimal = 16.0;
+  static const double minimal = 24.0;
   static const double channelSetting = 40.0;
+  static const double watchVideo = 35.0;
 }
 
 class ImageSize {

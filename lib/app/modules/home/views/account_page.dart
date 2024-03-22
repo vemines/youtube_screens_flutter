@@ -23,10 +23,10 @@ class _AccountPageState extends State<AccountPage> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _AccountListTile(),
-            _RowChipButton(),
+            _RowActionChip(),
             controller.isloadUserData.value ? _WatchHistorySection() : centerIndicator(),
-            controller.isloadUserData.value ? _PlaylistsSection() : SizedBox(),
-            controller.isloadUserData.value ? _UtilsListTitle() : SizedBox(),
+            controller.isloadUserData.value ? _PlaylistSection() : SizedBox(),
+            controller.isloadUserData.value ? _UtilsListTile() : SizedBox(),
           ].separateCenter(),
         ),
       ),
@@ -34,8 +34,8 @@ class _AccountPageState extends State<AccountPage> {
   }
 }
 
-class _UtilsListTitle extends StatelessWidget {
-  const _UtilsListTitle();
+class _UtilsListTile extends StatelessWidget {
+  const _UtilsListTile();
 
   @override
   Widget build(BuildContext context) {
@@ -78,8 +78,8 @@ class _UtilsListTitle extends StatelessWidget {
   }
 }
 
-class _PlaylistsSection extends GetView<HomeController> {
-  const _PlaylistsSection();
+class _PlaylistSection extends GetView<HomeController> {
+  const _PlaylistSection();
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,7 @@ class _PlaylistsSection extends GetView<HomeController> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 ...controller.playlists.map(
-                  (playlist) => _PlayListWidget(playlist),
+                  (playlist) => _PlaylistWidget(playlist),
                 ),
               ].separateCenter(),
             ),
@@ -130,8 +130,8 @@ class _PlaylistsSection extends GetView<HomeController> {
   }
 }
 
-class _PlayListWidget extends StatelessWidget {
-  const _PlayListWidget(this.playlist);
+class _PlaylistWidget extends StatelessWidget {
+  const _PlaylistWidget(this.playlist);
   final PlaylistModel playlist;
 
   @override
@@ -337,8 +337,8 @@ class _WatchHistoryWidget extends StatelessWidget {
   }
 }
 
-class _RowChipButton extends StatelessWidget {
-  const _RowChipButton();
+class _RowActionChip extends StatelessWidget {
+  const _RowActionChip();
 
   @override
   Widget build(BuildContext context) {

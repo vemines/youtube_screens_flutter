@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../shared/widgets/common.dart';
+
 import '../../../../gen/assets.gen.dart';
+import '../../../routes/app_pages.dart';
 import '../../../shared/extensions/widget_extension.dart';
+import '../../../shared/widgets/appbar.dart';
+import '../../../shared/widgets/common.dart';
 import '../controllers/download_controller.dart';
 
 class DownloadView extends StatefulWidget {
@@ -20,23 +23,14 @@ class _DownloadViewState extends State<DownloadView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: AppBarTitleWithSearchAndMore(
+          title: "Downloads",
+          onBack: () => Get.back(),
+          searchOnPressed: () => Get.toNamed(Routes.search),
+          moreOnPressed: () {},
         ),
-        title: Text("Downloads"),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
-          ),
-        ].separateCenter(),
       ),
       body: Obx(
         () => controller.isLoading.value
@@ -45,18 +39,27 @@ class _DownloadViewState extends State<DownloadView> {
                 ? NoScrollBarWidget(
                     child: downloadedVideos(),
                   )
-                : Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Assets.png.download.image(),
-                        Text(
-                          "Videos you download will appear here",
-                          style: context.textTheme.bodySmall,
-                        ),
-                      ].separateCenter(),
-                    ),
-                  ),
+                : _EmptyDownloadWidget(),
+      ),
+    );
+  }
+}
+
+class _EmptyDownloadWidget extends StatelessWidget {
+  const _EmptyDownloadWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Assets.png.download.image(),
+          Text(
+            "Videos you download will appear here",
+            style: context.textTheme.bodySmall,
+          ),
+        ].separateCenter(),
       ),
     );
   }

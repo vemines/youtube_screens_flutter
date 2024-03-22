@@ -1,57 +1,60 @@
 import 'package:get/get.dart';
-import '../modules/channelSetting/views/channel_setting_view.dart';
-import '../modules/purchaseAndMem/bindings/purchase_and_mem_binding.dart';
-import '../modules/purchaseAndMem/views/channel_membership_detail.dart';
-import '../modules/purchaseAndMem/views/channel_membership_screen.dart';
-import '../modules/purchaseAndMem/views/inactive_membership_detail.dart';
-import '../modules/purchaseAndMem/views/purchase_and_mem_view.dart';
+import '../modules/watch/bindings/watch_binding.dart';
+import '../modules/watch/views/watch_view.dart';
+import '../modules/channel_setting/views/channel_setting_view.dart';
+import '../modules/purchase_and_membership/bindings/purchase_and_mem_binding.dart';
+import '../modules/purchase_and_membership/views/channel_membership_detail.dart';
+import '../modules/purchase_and_membership/views/channel_membership_screen.dart';
+import '../modules/purchase_and_membership/views/inactive_membership_detail.dart';
+import '../modules/purchase_and_membership/views/purchase_and_mem_view.dart';
 import '../modules/settings/views/caption_setting.dart';
-import '../modules/tryFeature/bindings/try_feature_binding.dart';
-import '../modules/allSubscriptions/views/all_subscriptions_view.dart';
-import '../modules/channelSetting/bindings/channel_setting_binding.dart';
+import '../modules/experimental_feature/bindings/experimental_feature_binding.dart';
+import '../modules/all_subscriptions/views/all_subscriptions_view.dart';
+import '../modules/channel_setting/bindings/channel_setting_binding.dart';
 import '../modules/download/bindings/download_binding.dart';
 import '../modules/download/views/download_view.dart';
 import '../modules/get_premium/views/get_premium_view.dart';
 import '../modules/playlist/bindings/playlist_binding.dart';
 import '../modules/playlist/views/playlist_view.dart';
-import '../modules/purchaseAndMem/views/inactive_membership_screen.dart';
+import '../modules/purchase_and_membership/views/inactive_membership_screen.dart';
 import '../modules/search/views/search_result_screen.dart';
 import '../modules/search/views/search_view.dart';
 import '../modules/settings/views/setting_demo_screen.dart';
-import '../modules/settings/views/setting_demo_sub_screen.dart';
+import '../modules/settings/views/setting_demo_nav_screen.dart';
 import '../modules/settings/views/settings_view.dart';
-import '../modules/myMovie/views/my_movie_view.dart';
-import '../modules/allSubscriptions/bindings/all_subscriptions_binding.dart';
-import '../modules/connectedApps/bindings/connected_apps_binding.dart';
-import '../modules/connectedApps/views/connected_apps_view.dart';
+import '../modules/movie/views/movie_view.dart';
+import '../modules/all_subscriptions/bindings/all_subscriptions_binding.dart';
+import '../modules/connected_apps/bindings/connected_apps_binding.dart';
+import '../modules/connected_apps/views/connected_apps_view.dart';
 import '../modules/get_premium/bindings/get_premium_binding.dart';
-import '../modules/movies/bindings/movie_binding.dart';
-import '../modules/movies/views/movie_view.dart';
+import '../modules/rent_movie/bindings/rent_movie_binding.dart';
+import '../modules/rent_movie/views/rent_movie_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
-import '../modules/myChannel/bindings/my_channel_binding.dart';
-import '../modules/myChannel/views/my_channel_view.dart';
+import '../modules/channel/bindings/channel_binding.dart';
+import '../modules/channel/views/channel_view.dart';
 import '../modules/search/bindings/search_binding.dart';
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/watch_on_tv_setting.dart';
 import '../modules/static/index.dart';
 import '../modules/time_watched/bindings/time_watched_binding.dart';
 import '../modules/time_watched/views/time_watched_view.dart';
-import '../modules/myMovie/bindings/my_movie_binding.dart';
-import '../modules/tryFeature/views/try_feature_view.dart';
+import '../modules/movie/bindings/movie_binding.dart';
+import '../modules/experimental_feature/views/experimental_feature_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.purchasesAndMembership;
+  // static const INITIAL = Routes.watch;
+  static const INITIAL = "/index";
 
   static final routes = [
     //
     GetPage(
-      name: "/",
+      name: "/index",
       page: () => const MainDemo(),
     ),
     //
@@ -116,15 +119,15 @@ class AppPages {
     ),
     //
     GetPage(
-      name: Routes.myMovie,
-      page: () => const MyMovieView(),
-      binding: MyMovieBinding(),
+      name: Routes.rentMovie,
+      page: () => const RentMovieView(),
+      binding: RentMovieBinding(),
     ),
     //
     GetPage(
-      name: Routes.myChannel,
-      page: () => const MyChannelView(),
-      binding: MyChannelBinding(),
+      name: Routes.channel,
+      page: () => const ChannelView(),
+      binding: ChannelBinding(),
     ),
     //
     GetPage(
@@ -151,14 +154,14 @@ class AppPages {
     ),
     //
     GetPage(
-      name: Routes.captionsSettings,
+      name: Routes.captionSettings,
       page: () => const CaptionSetting(),
     ),
     //
     GetPage(
       name: Routes.experimentalFeature,
-      page: () => const TryFeatureView(),
-      binding: TryFeatureBinding(),
+      page: () => const ExperimentalFeatureView(),
+      binding: ExperimentalFeatureBinding(),
     ),
     //
     GetPage(
@@ -195,6 +198,12 @@ class AppPages {
       name: Routes.inactiveMembershipDetail,
       page: () => InactiveMembershipsDetail(),
       binding: PurchaseAndMemBinding(),
+    ),
+    //
+    GetPage(
+      name: Routes.watch,
+      page: () => WatchView(),
+      binding: WatchBinding(),
     ),
   ];
 }

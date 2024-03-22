@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../shared/extensions/widget_extension.dart';
+import '../../../routes/app_pages.dart';
+import '../../../shared/widgets/appbar.dart';
 import '../../../shared/widgets/common.dart';
 import '../controllers/name_controller.dart';
 
@@ -18,23 +19,14 @@ class _NameViewState extends State<NameView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: AppBarTitleWithSearchAndMore(
+          title: "Inactive Memberships",
+          onBack: () => Get.back(),
+          searchOnPressed: () => Get.toNamed(Routes.search),
+          moreOnPressed: () {},
         ),
-        title: Text("Name"),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
-          ),
-        ].separateCenter(),
       ),
       body: Obx(
         () => controller.isLoading.value ? centerIndicator() : Container(),

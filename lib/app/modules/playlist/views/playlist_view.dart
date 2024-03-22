@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../data/models/playlist_model.dart';
 import '../../../data/models/video_model.dart';
+import '../../../routes/app_pages.dart';
 import '../../../shared/constants/dimens.dart';
+import '../../../shared/widgets/appbar.dart';
 import '../../../shared/widgets/common.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../../gen/colors.gen.dart';
@@ -24,22 +26,14 @@ class _PlaylistViewState extends State<PlaylistView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: Icon(Icons.arrow_back),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(AppBar().preferredSize.height),
+        child: AppBarTitleWithSearchAndMore(
+          title: "",
+          onBack: () => Get.back(),
+          searchOnPressed: () => Get.toNamed(Routes.search),
+          moreOnPressed: () {},
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
-          ),
-        ].separateCenter(),
       ),
       body: Obx(
         () => controller.isLoading.value

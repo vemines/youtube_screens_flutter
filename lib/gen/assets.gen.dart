@@ -37,7 +37,7 @@ class $AssetsPngGen {
   AssetGenImage get premiumLogo => const AssetGenImage('assets/png/premium_logo.png');
 
   /// File path: assets/png/try_feature.png
-  AssetGenImage get tryFeature => const AssetGenImage('assets/png/try_feature.png');
+  AssetGenImage get ExperimentalFeature => const AssetGenImage('assets/png/try_feature.png');
 
   /// File path: assets/png/your_video.png
   AssetGenImage get yourVideo => const AssetGenImage('assets/png/your_video.png');
@@ -49,7 +49,8 @@ class $AssetsPngGen {
   AssetGenImage get ytLogoDark => const AssetGenImage('assets/png/yt_logo_dark.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [coffee, download, movie, premiumLogo, tryFeature, yourVideo, ytLogo, ytLogoDark];
+  List<AssetGenImage> get values =>
+      [coffee, download, movie, premiumLogo, ExperimentalFeature, yourVideo, ytLogo, ytLogoDark];
 }
 
 class $AssetsSvgGen {
