@@ -3,10 +3,21 @@ import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 
 class SettingsController extends GetxController {
-  final RxString radioSelected = "Option 1".obs;
+  RxString radioSetting = "Option 1".obs;
   List<String> radioOptions = ["Option 1", "Option 2", "Option 3"];
-  void changeRadioSelected(String? s) {
-    if (s != null) radioSelected.value = s;
+  void changeRadioSetting(String? s) {
+    if (s != null) radioSetting.value = s;
+  }
+
+  RxBool switchSetting = true.obs;
+  void changeSwitchSetting(bool? b) {
+    if (b != null) switchSetting.value = b;
+  }
+
+  int dialogSelect = 1;
+  List<int> options = List.generate(20, (index) => index + 1);
+  void changeDialogSelect(int? i) {
+    if (i != null) dialogSelect = i;
   }
 }
 

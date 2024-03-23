@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_screens/app/shared/widgets/appbar.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../shared/constants/dimens.dart';
@@ -34,36 +33,68 @@ class _ChannelViewState extends State<ChannelView> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = context.theme.colorScheme;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(AppBar().preferredSize.height),
-          child: AppBarTitleWithSearchAndMore(
-            title: "My Channel",
-            onBack: () {},
-            searchOnPressed: () {},
-            moreOnPressed: () {},
+        body: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          child: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+              // The flexible app bar with the tabs
+              SliverAppBar(
+                automaticallyImplyLeading: false,
+                leading: IconButton(
+                  onPressed: () => Get.back(),
+                  icon: Icon(Icons.arrow_back),
+                ),
+                title: Text("My Channel"),
+                actions: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.search),
+                  ),
+                  gapN(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.more_vert),
+                  ),
+                ],
+                expandedHeight: 300,
+                pinned: true,
+                forceElevated: innerBoxIsScrolled,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: AppBar().preferredSize.height),
+                      child: _AccountWidget(),
+                    ),
+                  ),
+                ),
+                bottom: TabBar(
+                  labelColor: colorScheme.onPrimary,
+                  controller: _tabController,
+                  indicatorColor: colorScheme.onPrimary,
+                  unselectedLabelColor: context.theme.disabledColor,
+                  isScrollable: true,
+                  tabAlignment: TabAlignment.start, // Or TabAlignment.start for left alignment
+                  tabs: [
+                    Tab(child: Text("Home", style: context.textTheme.bodyLarge)),
+                    Tab(child: Text("Playlist", style: context.textTheme.bodyLarge)),
+                  ],
+                ),
+              )
+            ],
+            // The content of each tab
+            body: TabBarView(
+              controller: _tabController,
+              children: [
+                _HomeTab(),
+                _PlayListTab(),
+              ],
+            ),
           ),
-        ),
-        body: CustomScrollView(
-          scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          slivers: [
-            _AccountWidget(),
-            _PinnedTabbarWidget(_tabController),
-            // I CAN'T HANDLE TABBAR VIEW SO I USE OBX INSTEAL
-            Obx(() {
-              if (controller.currentTabIndex == 0)
-                return SliverToBoxAdapter(
-                  child: _HomeTab(),
-                );
-              if (controller.currentTabIndex == 1)
-                return SliverToBoxAdapter(
-                  child: _PlayListTab(),
-                );
-              return SizedBox();
-            }),
-          ],
         ),
         bottomNavigationBar: BottomNavibarNoSelected(),
       ),
@@ -78,52 +109,50 @@ class _HomeTab extends GetView<ChannelController> {
   Widget build(BuildContext context) {
     final textTheme = Get.context!.textTheme;
     final disableColor = Get.context!.theme.disabledColor;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ...controller.playlists
-            .map((playlist) => _PlayListAndChannelWidget(
-                  title: playlist.nameChannel,
-                  subtitle: playlist.getStatusMyChannel(),
-                  lineThree: Text(playlist.getLastestUpdate()),
-                  imageUrl: playlist.thumb,
-                  lengthPlaylist: playlist.getPlaylistLength(),
-                ))
-            .toList(),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: Dimensions.normal),
-          child: divider(),
-        ),
-        ...controller.subscriptions
-            .map(
-              (subscription) => _PlayListAndChannelWidget(
-                title: subscription.nameChannel,
-                subtitle: subscription.tagChannel,
-                lineThree: noSplashInkWell(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: Dimensions.small),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "SUBSCRIBED",
-                          style: textTheme.bodyLarge!.copyWith(color: disableColor),
-                        ),
-                        gapS(),
-                        Icon(
-                          Icons.notifications_outlined,
-                          color: disableColor,
-                        ),
-                      ],
-                    ),
+    return ListView.builder(
+      padding: EdgeInsets.all(Dimensions.small),
+      itemCount: controller.playlists.length + controller.subscriptions.length + 1,
+      itemBuilder: (context, index) {
+        if (index < controller.playlists.length)
+          return _PlayListAndChannelWidget(
+            title: controller.playlists[index].nameChannel,
+            subtitle: controller.playlists[index].getStatusMyChannel(),
+            lineThree: Text(controller.playlists[index].getLastestUpdate()),
+            imageUrl: controller.playlists[index].thumb,
+            lengthPlaylist: controller.playlists[index].getPlaylistLength(),
+          );
+        if (index == controller.playlists.length)
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: Dimensions.normal),
+            child: divider(),
+          );
+        int subcribeIndex = index - controller.playlists.length - 1;
+        return _PlayListAndChannelWidget(
+          title: controller.subscriptions[subcribeIndex].nameChannel,
+          subtitle: controller.subscriptions[subcribeIndex].tagChannel,
+          lineThree: noSplashInkWell(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(top: Dimensions.small),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "SUBSCRIBED",
+                    style: textTheme.bodyLarge!.copyWith(color: disableColor),
                   ),
-                ),
-                imageUrl: subscription.iconChannel,
+                  gapS(),
+                  Icon(
+                    Icons.notifications_outlined,
+                    color: disableColor,
+                  ),
+                ],
               ),
-            )
-            .toList(),
-      ],
+            ),
+          ),
+          imageUrl: controller.subscriptions[subcribeIndex].iconChannel,
+        );
+      },
     );
   }
 }
@@ -133,74 +162,20 @@ class _PlayListTab extends GetView<ChannelController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: controller.playlists
-          .map((playlist) => _PlayListAndChannelWidget(
-                title: playlist.nameChannel,
-                subtitle: playlist.getStatusMyChannel(),
-                lineThree: Text(playlist.getLastestUpdate()),
-                imageUrl: playlist.thumb,
-                lengthPlaylist: playlist.getPlaylistLength(),
-              ))
-          .toList(),
+    return ListView.builder(
+      padding: EdgeInsets.all(Dimensions.small),
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: controller.playlists.length,
+      itemBuilder: (context, index) {
+        return _PlayListAndChannelWidget(
+          title: controller.playlists[index].nameChannel,
+          subtitle: controller.playlists[index].getStatusMyChannel(),
+          lineThree: Text(controller.playlists[index].getLastestUpdate()),
+          imageUrl: controller.playlists[index].thumb,
+          lengthPlaylist: controller.playlists[index].getPlaylistLength(),
+        );
+      },
     );
-  }
-}
-
-class _PinnedTabbarWidget extends StatelessWidget {
-  const _PinnedTabbarWidget(
-    this.tabController,
-  );
-
-  final TabController tabController;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverPersistentHeader(
-      delegate: _PinnedHeaderDelegate(tabController),
-      pinned: true,
-    );
-  }
-}
-
-class _PinnedHeaderDelegate extends SliverPersistentHeaderDelegate {
-  _PinnedHeaderDelegate(this.tabController);
-  final TabController tabController;
-  double height = 48;
-  final ChannelController controller = Get.find<ChannelController>();
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    final colorScheme = context.theme.colorScheme;
-    return Container(
-      color: colorScheme.background,
-      height: height,
-      child: TabBar(
-        labelColor: colorScheme.onPrimary,
-        controller: tabController,
-        indicatorColor: colorScheme.onPrimary,
-        unselectedLabelColor: context.theme.disabledColor,
-        isScrollable: true,
-        tabAlignment: TabAlignment.start, // Or TabAlignment.start for left alignment
-        tabs: [
-          Tab(child: Text("Home", style: context.textTheme.bodyLarge)),
-          Tab(child: Text("Playlist", style: context.textTheme.bodyLarge)),
-        ],
-        onTap: controller.setTabIndex,
-      ),
-    );
-  }
-
-  @override
-  double get maxExtent => height; // Height of the pinned widget
-
-  @override
-  double get minExtent => height; // Height of the pinned widget
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
   }
 }
 
@@ -287,75 +262,73 @@ class _AccountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = context.textTheme;
-    return SliverToBoxAdapter(
-      child: GestureDetector(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                gapN(),
-                CircleAvatar(
-                  radius: ImageSize.avatarAccountPage,
-                  child: Assets.png.coffee.image(),
-                ),
-                gapN(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    gapN(),
-                    Text("VeMines", style: textTheme.headlineMedium),
-                    Text("@Vemines1234 - ", style: textTheme.bodyMedium),
-                  ],
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: Dimensions.normal),
-              child: Text("More about this channel >", style: textTheme.bodySmall),
-            ),
-            Row(
-              children: [
-                gapN(),
-                Flexible(
-                  child: FractionallySizedBox(
-                    widthFactor: 1,
-                    child: FilledButton(
-                      onPressed: () {},
-                      style: FilledButton.styleFrom(
-                        backgroundColor: Colors.grey.shade600.withOpacity(0.5),
-                        elevation: 5,
-                        padding: EdgeInsets.symmetric(
-                          vertical: Dimensions.normal,
-                        ),
+    return GestureDetector(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              gapN(),
+              CircleAvatar(
+                radius: ImageSize.avatarAccountPage,
+                child: Assets.png.coffee.image(),
+              ),
+              gapN(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  gapN(),
+                  Text("VeMines", style: textTheme.headlineMedium),
+                  Text("@Vemines1234 - ", style: textTheme.bodyMedium),
+                ],
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: Dimensions.normal),
+            child: Text("More about this channel >", style: textTheme.bodySmall),
+          ),
+          Row(
+            children: [
+              gapN(),
+              Flexible(
+                child: FractionallySizedBox(
+                  widthFactor: 1,
+                  child: FilledButton(
+                    onPressed: () {},
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Colors.grey.shade600.withOpacity(0.5),
+                      elevation: 5,
+                      padding: EdgeInsets.symmetric(
+                        vertical: Dimensions.normal,
                       ),
-                      child: Text(
-                        "Manage Video",
-                        style: context.textTheme.bodyLarge,
-                      ),
+                    ),
+                    child: Text(
+                      "Manage Video",
+                      style: context.textTheme.bodyLarge,
                     ),
                   ),
                 ),
-                gapS(),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.bar_chart_outlined,
-                  ),
+              ),
+              gapS(),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.bar_chart_outlined,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.edit_outlined),
-                ),
-                gapN(),
-              ],
-            )
-          ].separateCenter(),
-        ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.edit_outlined),
+              ),
+              gapN(),
+            ],
+          )
+        ].separateCenter(),
       ),
     );
   }
