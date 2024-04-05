@@ -6,18 +6,23 @@ import '../constants/colors.dart';
 import '../constants/dimens.dart';
 import '../extensions/num_extension.dart';
 
-var brightness = SchedulerBinding.instance.platformDispatcher.platformBrightness;
+var brightness =
+    SchedulerBinding.instance.platformDispatcher.platformBrightness;
 bool isDarkMode = brightness == Brightness.dark;
 
-Widget gapF(double factor) => Gap(Dimensions.normal * factor); // gap with factor
+Widget gapF(double factor) =>
+    Gap(Dimensions.normal * factor); // gap with factor
 Widget gapN() => const Gap(Dimensions.normal); // gap normal
 Widget gapS() => const Gap(Dimensions.small); // gap small
+Widget gapSM() => const Gap(Dimensions.small / 2); // gap small
 Widget gapL() => const Gap(Dimensions.large); // gap large
 
 Widget divider([double height = 4]) {
   return Divider(
     height: height,
-    color: isDarkMode ? white.withAlpha(0.4.opacityToAlpha()) : black.withAlpha(0.4.opacityToAlpha()),
+    color: isDarkMode
+        ? white.withAlpha(0.4.opacityToAlpha())
+        : black.withAlpha(0.4.opacityToAlpha()),
   );
 }
 
@@ -45,7 +50,8 @@ class NoScrollBarWidget extends StatelessWidget {
 
 Widget centerIndicator() => Center(child: CircularProgressIndicator());
 
-Widget noSplashInkWell({required Widget child, required Function() onTap}) => InkWell(
+Widget noSplashInkWell({required Widget child, required Function() onTap}) =>
+    InkWell(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       child: child,

@@ -19,7 +19,41 @@ class SettingsController extends GetxController {
   void changeDialogSelect(int? i) {
     if (i != null) dialogSelect = i;
   }
+
+  Rx<SponsorBlockStatus> sbStatusDemo =
+      SponsorBlockStatus.SKIP_AUTOMATICALLY.obs;
+  Rx<SponsorBlockStatus> sbStatusDemoCurrent =
+      SponsorBlockStatus.SKIP_AUTOMATICALLY.obs;
+
+  void changeSbStatusDemo(SponsorBlockStatus? status) {
+    if (status != null) sbStatusDemo.value = status;
+  }
+
+  void saveSbStatus() {
+    sbStatusDemoCurrent.value = sbStatusDemo.value;
+  }
+
+  void cancelSbStatus() {
+    sbStatusDemo.value = sbStatusDemoCurrent.value;
+  }
 }
+
+// Must place at shared/constamts/enum.dart
+enum SponsorBlockStatus {
+  SKIP_AUTOMATICALLY,
+  SKIP_AUTOMATICALLY_ONCE,
+  SHOW_SKIP_BUTTON,
+  SHOW_IN_SEEK_BAR,
+  DISABLE,
+}
+
+Map<SponsorBlockStatus, String> sponsorBlockStatusName = {
+  SponsorBlockStatus.SKIP_AUTOMATICALLY: "Skip automatically",
+  SponsorBlockStatus.SKIP_AUTOMATICALLY_ONCE: "Skip automatically one",
+  SponsorBlockStatus.SHOW_SKIP_BUTTON: "Show a skip button",
+  SponsorBlockStatus.SHOW_IN_SEEK_BAR: "Show in seek bar",
+  SponsorBlockStatus.DISABLE: "Disable",
+};
 
 final List<Map<String, dynamic>> availabelSettings = <Map<String, dynamic>>[
   {

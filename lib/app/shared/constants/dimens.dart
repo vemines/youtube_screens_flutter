@@ -26,6 +26,7 @@ class IconSize {
 class ImageSize {
   static const double appbar = 25.0;
   static const double subscriptionBar = 25.0;
+  static const double selectAcountDialog = 40.0;
   static const double leadingNotification = 35.0;
   static const double myChannelImageHeight = 100.0;
   static const double myChannelImageWidth = 160.0;
@@ -35,6 +36,8 @@ class ImageSize {
 
 class BadgeSize {
   static const double notification = 8.0;
+  static const double sponsorBlock = 12.0;
+  static const double sponsorBlockDialog = 10.0;
 }
 
 class ChartSize {

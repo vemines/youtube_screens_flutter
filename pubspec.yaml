@@ -1,4 +1,4 @@
-name: youtube_screens
+name: Youtube
 version: 1.0.0+1
 description: Clone Youtube Screens With Flutter
 environment:
